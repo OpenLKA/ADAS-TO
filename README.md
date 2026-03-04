@@ -1,217 +1,294 @@
----
-license: cc-by-nc-4.0
-task_categories:
-- time-series-forecasting
-- video-classification
-tags:
-- autonomous-driving
-- ADAS
-- takeover
-- driver-behavior
-- time-series
-- multimodal
-- CAN-bus
-- vehicle-dynamics
-size_categories:
-- 10K<n<100K
-language:
-- en
-pretty_name: >-
-  ADAS-TO: A Large-Scale Multimodal Naturalistic Dataset and Empirical
-  Characterization of Human Takeovers during ADAS Engagement
+<div align="center">
+
+# 🚗💨 ADAS-TO
+
+### **A Large-Scale Multimodal Naturalistic Dataset and Empirical Characterization of Human Takeovers during ADAS Engagement**
+
+*15,705 real-world takeover events · 327 drivers · 163 vehicle models · 23 manufacturers*
+
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
+[![Dataset on HF](https://img.shields.io/badge/🤗%20Dataset-ADAS--TO-blue)](https://huggingface.co/datasets/HenryYHW/ADAS-TO)
+[![Clips](https://img.shields.io/badge/Clips-15%2C705-brightgreen)]()
+[![Vehicles](https://img.shields.io/badge/Vehicle%20Models-163-orange)]()
+[![Size](https://img.shields.io/badge/Size-~33%20GB-red)]()
+[![Modality](https://img.shields.io/badge/Modality-Video%20%2B%20CAN%20%2B%20Radar%20%2B%20IMU-purple)]()
+
 ---
 
-# ADAS-TO: A Large-Scale Multimodal Naturalistic Dataset and Empirical Characterization of Human Takeovers during ADAS Engagement
+**When does a human driver take over from an ADAS?** **Why?** **How?**
 
-#### [Full Dataset Downloading from Hugging Face](https://huggingface.co/datasets/HenryYHW/ADAS-TO)
+ADAS-TO captures the critical moment of control transition — the exact instant a driver decides the automation is no longer sufficient — across thousands of real-world scenarios with synchronized front-view video, vehicle dynamics, radar, and IMU data.
 
-## Dataset Summary
+</div>
 
-**ADAS-TO** is a large-scale, multimodal dataset of **15,705 real-world ADAS takeover events** captured from **327 drivers** across **163 vehicle models** from **23 manufacturers**. Each takeover event is a 20-second clip centered on the moment a driver disengages an Advanced Driver Assistance System (ADAS), providing synchronized video, vehicle dynamics, controller state, and sensor data.
+---
 
-| Statistic             | Value                              |
-| --------------------- | ---------------------------------- |
-| Total takeover clips  | 15,705                             |
-| Unique drivers        | 327                                |
-| Unique driving routes | 2,312                              |
-| Vehicle models        | 163                                |
-| Manufacturers         | 23                                 |
-| Clip duration         | 20 seconds (±10 s around takeover) |
-| Video resolution      | Front-facing camera, 20 fps        |
-| CAN/sensor signals    | 10–100 Hz                          |
-| Total size            | ~33 GB                             |
+## 🎬 Takeover Examples
 
-## Motivation
+<div align="center">
 
-Understanding how and why drivers take over from automated driving systems is critical for improving ADAS safety, designing better human-machine interfaces, and developing predictive takeover models. Despite growing research interest, large-scale naturalistic takeover datasets remain scarce. ADAS-TO addresses this gap by providing:
+*Each GIF shows ±3 seconds around the takeover moment — ADAS engaged → driver takes control*
 
-- **Scale**: Over 15K events across hundreds of drivers and vehicles
-- **Diversity**: 163 vehicle models spanning sedans, SUVs, trucks, and EVs from 23 manufacturers
-- **Richness**: Synchronized video + 9 time-series signal files per event
-- **Naturalistic**: Real-world driving (not simulator), capturing genuine driver behavior
+<table>
+<tr>
+<td align="center"><img src="https://huggingface.co/datasets/HenryYHW/ADAS-TO/resolve/main/assets/takeover_1.gif" width="240"/><br/><sub>On-coming Traffic</sub></td>
+<td align="center"><img src="https://huggingface.co/datasets/HenryYHW/ADAS-TO/resolve/main/assets/takeover_2.gif" width="240"/><br/><sub>Bridge</sub></td>
+<td align="center"><img src="https://huggingface.co/datasets/HenryYHW/ADAS-TO/resolve/main/assets/takeover_3.gif" width="240"/><br/><sub>Night Driving</sub></td>
+<td align="center"><img src="https://huggingface.co/datasets/HenryYHW/ADAS-TO/resolve/main/assets/takeover_4.gif" width="240"/><br/><sub>Sharp Curve</sub></td>
+</tr>
+<tr>
+<td align="center"><img src="https://huggingface.co/datasets/HenryYHW/ADAS-TO/resolve/main/assets/takeover_5.gif" width="240"/><br/><sub>Surrounding Car</sub></td>
+<td align="center"><img src="https://huggingface.co/datasets/HenryYHW/ADAS-TO/resolve/main/assets/takeover_6.gif" width="240"/><br/><sub>Traffic Light</sub></td>
+<td align="center"><img src="https://huggingface.co/datasets/HenryYHW/ADAS-TO/resolve/main/assets/takeover_7.gif" width="240"/><br/><sub>Lane Change</sub></td>
+<td align="center"><img src="https://huggingface.co/datasets/HenryYHW/ADAS-TO/resolve/main/assets/takeover_8.gif" width="240"/><br/><sub>Hard Brake</sub></td>
+</tr>
+</table>
 
-### Use Cases
+</div>
 
-- Takeover prediction and early warning systems
-- Driver behavior modeling during ADAS transitions
-- Analysis of ADAS disengagement patterns across vehicle types
-- Human factors research in automated driving
-- Multimodal time-series classification and forecasting
+---
 
-## Dataset Structure
+## 📊 Dataset at a Glance
+
+<div align="center">
+
+| | Statistic | Value |
+|:---:|:---|:---|
+| 🎥 | **Total takeover clips** | **15,705** |
+| 👤 | **Unique drivers** | **327** |
+| 🛣️ | **Unique driving routes** | **2,312** |
+| 🚘 | **Vehicle models** | **163** |
+| 🏭 | **Manufacturers** | **23** |
+| ⏱️ | **Clip duration** | **20 seconds** (±10s around takeover) |
+| 📹 | **Video** | Front-facing camera, **20 fps** |
+| 📡 | **CAN / sensor signals** | **10–100 Hz** |
+| 📁 | **Files per clip** | **10** (1 video + 1 meta + 8 CSV) |
+| 💾 | **Total size** | **~33 GB** |
+
+</div>
+
+---
+
+## 🔥 Why ADAS-TO?
+
+> *"The takeover moment is the most safety-critical instant in human-automation interaction — yet it remains one of the least studied due to lack of data."*
+
+### 🏆 Unprecedented Scale
+Over **15,000 real-world takeover events** — orders of magnitude larger than existing datasets that typically contain hundreds of events captured in driving simulators.
+
+### 🌍 Unmatched Diversity
+**163 vehicle models** from **23 manufacturers** including Tesla, Toyota, Honda, Hyundai, Ford, Volkswagen, Rivian, and more. From compact EVs to full-size trucks — spanning the full spectrum of modern ADAS implementations.
+
+### 🎯 Rich Multimodal Signals
+Every clip contains **synchronized** front-camera video, vehicle dynamics (speed, acceleration, steering), ADAS controller state, control commands, actuator outputs, driving model predictions, radar/lead vehicle data, and IMU measurements.
+
+### 🌐 Real-World Naturalistic Data
+Collected through **online and offline autonomous driving communities** with diverse real-world driving conditions — highways, urban streets, suburbs, varying weather and lighting. No simulators. No scripted scenarios. Pure naturalistic driving behavior.
+
+---
+
+## 🎯 Use Cases
+
+| Application | Description |
+|:---|:---|
+| 🔮 **Takeover Prediction** | Build early warning systems that predict when a driver will need to take over |
+| 🧠 **Driver Behavior Modeling** | Understand human responses during control transitions |
+| 📈 **ADAS Performance Analysis** | Compare disengagement patterns across vehicle types and ADAS systems |
+| 🤖 **Autonomous Driving Safety** | Train and evaluate safety-critical decision-making models |
+| 🧪 **Human Factors Research** | Study cognitive load, reaction times, and situational awareness |
+| 📊 **Multimodal Time-Series** | Develop forecasting and classification models on rich temporal data |
+| 🏗️ **HMI Design** | Design better human-machine interfaces for automated vehicles |
+
+---
+
+## 📁 Dataset Structure
 
 ```
 ADAS-TO/
-  <CAR_MODEL>/                  # e.g., TOYOTA_PRIUS, TESLA_AP3_MODEL_3
-    <driver_XXX>/               # anonymized driver ID
-      <route_XXX>/              # anonymized route ID
-        <clip_id>/              # integer (0-indexed per route)
-          meta.json             # clip metadata
-          takeover.mp4          # 20-second front-camera video
-          carState.csv          # vehicle state signals
-          controlsState.csv     # ADAS controller state
-          carControl.csv        # control commands
-          carOutput.csv         # actuator outputs
-          drivingModelData.csv  # driving model predictions
-          radarState.csv        # radar / lead vehicle data
-          accelerometer.csv     # IMU accelerometer data
-          longitudinalPlan.csv  # longitudinal planner outputs
+├── <CAR_MODEL>/                        # e.g., TOYOTA_PRIUS, TESLA_AP3_MODEL_3
+│   └── <driver_XXX>/                   # 🔒 anonymized driver ID
+│       └── <route_XXX>/                # 🔒 anonymized route ID
+│           └── <clip_id>/              # integer (0-indexed per route)
+│               ├── 🎥 takeover.mp4          20-second front-camera video
+│               ├── 📋 meta.json             clip metadata & timing
+│               ├── 🚗 carState.csv          vehicle dynamics & driver inputs
+│               ├── 🤖 controlsState.csv     ADAS controller state & alerts
+│               ├── 🎮 carControl.csv        lateral/longitudinal commands
+│               ├── ⚙️ carOutput.csv          actuator outputs
+│               ├── 🧠 drivingModelData.csv  model predictions & lane detection
+│               ├── 📡 radarState.csv        lead vehicle radar data
+│               ├── 📐 accelerometer.csv     IMU acceleration data
+│               └── 📏 longitudinalPlan.csv  planner targets & FCW
+└── ...
 ```
 
-Each clip contains **10 files**: 1 video, 1 metadata JSON, and 8 CSV time-series files.
+---
 
-## Takeover Event Definition
+## 📐 Takeover Event Definition
 
-A **takeover event** is defined as an ADAS ON → OFF transition where:
+<div align="center">
 
-- **ADAS engaged** = `controlsState.enabled` OR `carState.cruiseState.enabled`
-- **Minimum ON duration**: 2 seconds before disengagement
-- **Minimum OFF duration**: 2 seconds after disengagement
-- **Gap merging**: Transient gaps < 0.5 s are merged (to filter sensor noise)
-- **Clip window**: ±10 seconds centered on the ON→OFF transition (20 s total)
+```
+  ◄──────── 10 seconds ────────►◄──────── 10 seconds ────────►
+  ┌──────────────────────────────┬──────────────────────────────┐
+  │      🤖 ADAS ENGAGED         │      👤 MANUAL CONTROL        │
+  │   (automation driving)       │   (driver takes over)        │
+  └──────────────────────────────┴──────────────────────────────┘
+                                 ▲
+                            TAKEOVER EVENT
+                         (ON → OFF transition)
+```
 
-The first ~10 seconds of each clip show ADAS-engaged driving; the remaining ~10 seconds show the driver resuming manual control.
+</div>
 
-## Data Fields
+A **takeover event** is detected as an ADAS ON → OFF transition satisfying:
 
-### meta.json
+| Criterion | Value |
+|:---|:---|
+| **ADAS engaged** | `controlsState.enabled` OR `cruiseState.enabled` |
+| **Min ON duration** | ≥ 2 seconds before disengagement |
+| **Min OFF duration** | ≥ 2 seconds after disengagement |
+| **Gap merging** | Transient gaps < 0.5s merged (filters sensor noise) |
+| **Clip window** | ±10 seconds centered on transition (20s total) |
 
-| Field           | Type      | Description                                                 |
-| --------------- | --------- | ----------------------------------------------------------- |
-| `car_model`     | string    | Vehicle model identifier (e.g., `TOYOTA_PRIUS`)             |
-| `dongle_id`     | string    | Anonymized driver ID (`driver_XXX`)                         |
-| `route_id`      | string    | Anonymized route ID (`route_XXX`)                           |
-| `log_kind`      | string    | Log source: `qlog` (10 Hz) or `rlog` (100 Hz)               |
-| `log_hz`        | int       | Sampling rate of CAN signals (10 or 100)                    |
-| `vid_kind`      | string    | Video source: `qcamera` or `fcamera`                        |
-| `camera_fps`    | int       | Video frame rate (20 fps)                                   |
-| `clip_id`       | int       | Clip index within the route (0-indexed)                     |
-| `event_mono`    | int       | Monotonic timestamp of the takeover event (nanoseconds)     |
-| `video_time_s`  | float     | Time of takeover within the full route video (seconds)      |
-| `clip_start_s`  | float     | Start time of the 20-second clip within the route (seconds) |
-| `clip_dur_s`    | float     | Clip duration (seconds, typically 20.0)                     |
-| `seg_nums_used` | list[int] | Openpilot segment numbers covering this route               |
+---
 
-### carState.csv — Vehicle State
+## 📑 Data Fields Reference
 
-Driver inputs and ego vehicle dynamics.
+### 📋 meta.json — Clip Metadata
 
-| Column                | Description                                        |
-| --------------------- | -------------------------------------------------- |
-| `vEgo`                | Ego vehicle speed (m/s)                            |
-| `aEgo`                | Ego vehicle acceleration (m/s²)                    |
-| `steeringAngleDeg`    | Steering wheel angle (degrees)                     |
-| `steeringTorque`      | Steering torque applied by driver                  |
-| `steeringPressed`     | Whether driver is actively steering (boolean)      |
-| `gasPressed`          | Whether gas pedal is pressed (boolean)             |
-| `brakePressed`        | Whether brake pedal is pressed (boolean)           |
-| `cruiseState.enabled` | Whether cruise control / ADAS is engaged (boolean) |
+| Field | Type | Description |
+|:---|:---|:---|
+| `car_model` | string | Vehicle model (e.g., `TOYOTA_PRIUS`) |
+| `dongle_id` | string | Anonymized driver ID (`driver_XXX`) |
+| `route_id` | string | Anonymized route ID (`route_XXX`) |
+| `log_kind` | string | Log resolution: `qlog` (10 Hz) or `rlog` (100 Hz) |
+| `log_hz` | int | CAN signal sampling rate |
+| `vid_kind` | string | Camera source type |
+| `camera_fps` | int | Video frame rate (20 fps) |
+| `clip_id` | int | Clip index within route (0-indexed) |
+| `event_mono` | int | Monotonic timestamp of takeover (ns) |
+| `video_time_s` | float | Takeover time within full route video (s) |
+| `clip_start_s` | float | Clip start time within route (s) |
+| `clip_dur_s` | float | Clip duration (s) |
 
-### controlsState.csv — ADAS Controller State
+### 🚗 carState.csv — Vehicle Dynamics & Driver Inputs
 
-| Column             | Description                                      |
-| ------------------ | ------------------------------------------------ |
-| `enabled`          | Whether openpilot ADAS is enabled (boolean)      |
-| `active`           | Whether ADAS is actively controlling the vehicle |
-| `curvature`        | Current path curvature (1/m)                     |
-| `desiredCurvature` | Target path curvature from planner               |
-| `vCruise`          | Set cruise speed (m/s)                           |
-| `longControlState` | Longitudinal control state (enum)                |
-| `alertText1`       | Primary alert text displayed to driver           |
-| `alertText2`       | Secondary alert text                             |
+| Column | Unit | Description |
+|:---|:---|:---|
+| `vEgo` | m/s | Ego vehicle speed |
+| `aEgo` | m/s² | Ego vehicle acceleration |
+| `steeringAngleDeg` | deg | Steering wheel angle |
+| `steeringTorque` | N·m | Driver steering torque |
+| `steeringPressed` | bool | Driver actively steering |
+| `gasPressed` | bool | Gas pedal pressed |
+| `brakePressed` | bool | Brake pedal pressed |
+| `cruiseState.enabled` | bool | Cruise / ADAS engaged |
 
-### carControl.csv — Control Commands
+### 🤖 controlsState.csv — ADAS Controller
 
-| Column                | Description                            |
-| --------------------- | -------------------------------------- |
-| `latActive`           | Whether lateral control is active      |
-| `longActive`          | Whether longitudinal control is active |
-| `actuators.accel`     | Commanded acceleration (m/s²)          |
-| `actuators.torque`    | Commanded steering torque              |
-| `actuators.curvature` | Commanded path curvature               |
+| Column | Unit | Description |
+|:---|:---|:---|
+| `enabled` | bool | ADAS system enabled |
+| `active` | bool | ADAS actively controlling vehicle |
+| `curvature` | 1/m | Current path curvature |
+| `desiredCurvature` | 1/m | Target curvature from planner |
+| `vCruise` | m/s | Set cruise speed |
+| `longControlState` | enum | Longitudinal control state |
+| `alertText1` | string | Primary driver alert |
+| `alertText2` | string | Secondary driver alert |
 
-### carOutput.csv — Actuator Outputs
+### 🎮 carControl.csv — Control Commands
 
-| Column                             | Description                     |
-| ---------------------------------- | ------------------------------- |
-| `actuatorsOutput.accel`            | Actual acceleration output      |
-| `actuatorsOutput.brake`            | Brake actuator output           |
-| `actuatorsOutput.gas`              | Gas actuator output             |
-| `actuatorsOutput.steer`            | Steering actuator output        |
-| `actuatorsOutput.steerOutputCan`   | Raw CAN steering output         |
-| `actuatorsOutput.steeringAngleDeg` | Output steering angle (degrees) |
+| Column | Unit | Description |
+|:---|:---|:---|
+| `latActive` | bool | Lateral control active |
+| `longActive` | bool | Longitudinal control active |
+| `actuators.accel` | m/s² | Commanded acceleration |
+| `actuators.torque` | N·m | Commanded steering torque |
+| `actuators.curvature` | 1/m | Commanded path curvature |
 
-### drivingModelData.csv — Driving Model Predictions
+### ⚙️ carOutput.csv — Actuator Outputs
 
-| Column                       | Description                              |
-| ---------------------------- | ---------------------------------------- |
-| `action.desiredCurvature`    | Model-predicted desired curvature        |
-| `action.desiredAcceleration` | Model-predicted desired acceleration     |
-| `laneLineMeta.leftProb`      | Probability of left lane line detection  |
-| `laneLineMeta.rightProb`     | Probability of right lane line detection |
+| Column | Description |
+|:---|:---|
+| `actuatorsOutput.accel` | Acceleration actuator output |
+| `actuatorsOutput.brake` | Brake actuator output |
+| `actuatorsOutput.gas` | Gas actuator output |
+| `actuatorsOutput.steer` | Steering actuator output |
+| `actuatorsOutput.steerOutputCan` | Raw CAN steering output |
+| `actuatorsOutput.steeringAngleDeg` | Steering angle output (deg) |
 
-### radarState.csv — Lead Vehicle Detection
+### 🧠 drivingModelData.csv — Driving Model Predictions
 
-| Column           | Description                                   |
-| ---------------- | --------------------------------------------- |
-| `leadOne.dRel`   | Distance to primary lead vehicle (m)          |
-| `leadOne.vRel`   | Relative velocity of lead vehicle (m/s)       |
-| `leadOne.vLead`  | Absolute velocity of lead vehicle (m/s)       |
-| `leadOne.aLeadK` | Estimated acceleration of lead vehicle (m/s²) |
-| `leadTwo.*`      | Same fields for secondary lead vehicle        |
+| Column | Description |
+|:---|:---|
+| `action.desiredCurvature` | Model-predicted desired curvature |
+| `action.desiredAcceleration` | Model-predicted desired acceleration |
+| `laneLineMeta.leftProb` | Left lane line detection probability |
+| `laneLineMeta.rightProb` | Right lane line detection probability |
 
-### accelerometer.csv — IMU Data
+### 📡 radarState.csv — Lead Vehicle Detection
 
-| Column           | Description                       |
-| ---------------- | --------------------------------- |
-| `acceleration.v` | 3-axis acceleration vector (m/s²) |
-| `timestamp`      | Sensor timestamp                  |
+| Column | Unit | Description |
+|:---|:---|:---|
+| `leadOne.dRel` | m | Distance to primary lead vehicle |
+| `leadOne.vRel` | m/s | Relative velocity of lead |
+| `leadOne.vLead` | m/s | Absolute velocity of lead |
+| `leadOne.aLeadK` | m/s² | Lead vehicle acceleration |
+| `leadTwo.*` | — | Secondary lead vehicle (same fields) |
 
-### longitudinalPlan.csv — Planner Outputs
+### 📐 accelerometer.csv — IMU Data
 
-| Column     | Description                                  |
-| ---------- | -------------------------------------------- |
-| `aTarget`  | Target acceleration from planner (m/s²)      |
-| `hasLead`  | Whether a lead vehicle is detected (boolean) |
-| `fcw`      | Forward collision warning active (boolean)   |
-| `speeds[]` | Planned speed profile                        |
-| `accels[]` | Planned acceleration profile                 |
+| Column | Unit | Description |
+|:---|:---|:---|
+| `acceleration.v` | m/s² | 3-axis acceleration vector |
+| `timestamp` | — | Sensor timestamp |
 
-## Top Vehicle Models
+### 📏 longitudinalPlan.csv — Planner Outputs
 
-| Vehicle Model       | Clips |      | Vehicle Model           | Clips |
-| ------------------- | ----- | ---- | ----------------------- | ----- |
-| RIVIAN R1 GEN1      | 2,127 |      | CHEVROLET BOLT EUV 2022 | 244   |
-| ACURA MDX 3G MMR    | 1,863 |      | TOYOTA RAV4 TSS2 2023   | 228   |
-| FORD F-150 MK14     | 1,226 |      | RAM HD 5TH GEN          | 221   |
-| CHEVROLET SILVERADO | 639   |      | VOLKSWAGEN JETTA MK7    | 215   |
-| TOYOTA PRIUS        | 482   |      | KIA EV6                 | 209   |
-| HONDA CIVIC         | 470   |      | VOLKSWAGEN GOLF MK7     | 192   |
-| TESLA AP3 MODEL 3   | 432   |      | KIA NIRO EV             | 185   |
-| FORD MAVERICK MK1   | 300   |      | HYUNDAI IONIQ 6         | 177   |
-| HYUNDAI IONIQ 5     | 266   |      | VOLKSWAGEN ATLAS MK1    | 153   |
+| Column | Unit | Description |
+|:---|:---|:---|
+| `aTarget` | m/s² | Target acceleration |
+| `hasLead` | bool | Lead vehicle detected |
+| `fcw` | bool | Forward collision warning active |
+| `speeds[]` | m/s | Planned speed profile |
+| `accels[]` | m/s² | Planned acceleration profile |
 
-## Usage
+---
+
+## 🚘 Vehicle Coverage
+
+<div align="center">
+
+**23 Manufacturers · 163 Models · From Compact EVs to Full-Size Trucks**
+
+</div>
+
+### Top Vehicle Models by Clip Count
+
+| # | Vehicle Model | Clips | | # | Vehicle Model | Clips |
+|:---:|:---|---:|:---:|:---:|:---|---:|
+| 1 | 🏆 RIVIAN R1 GEN1 | 2,127 | | 10 | CHEVROLET BOLT EUV | 244 |
+| 2 | 🥈 ACURA MDX 3G | 1,863 | | 11 | TOYOTA RAV4 TSS2 | 228 |
+| 3 | 🥉 FORD F-150 MK14 | 1,226 | | 12 | RAM HD 5TH GEN | 221 |
+| 4 | CHEVROLET SILVERADO | 639 | | 13 | VOLKSWAGEN JETTA MK7 | 215 |
+| 5 | TOYOTA PRIUS | 482 | | 14 | KIA EV6 | 209 |
+| 6 | HONDA CIVIC | 470 | | 15 | VOLKSWAGEN GOLF MK7 | 192 |
+| 7 | TESLA MODEL 3 | 432 | | 16 | KIA NIRO EV | 185 |
+| 8 | FORD MAVERICK MK1 | 300 | | 17 | HYUNDAI IONIQ 6 | 177 |
+| 9 | HYUNDAI IONIQ 5 | 266 | | 18 | VOLKSWAGEN ATLAS MK1 | 153 |
+
+<details>
+<summary>📋 <b>All 23 Manufacturers</b> (click to expand)</summary>
+
+> Acura · Audi · BYD · Chevrolet · Ford · Genesis · Honda · Hyundai · Jeep · Kia · Lexus · Mazda · Nissan · Porsche · RAM · Rivian · Skoda · Subaru · Tesla · Toyota · Volkswagen · Volvo
+
+</details>
+
+---
+
+## 🚀 Quick Start
 
 ### Loading a Single Clip
 
@@ -223,20 +300,26 @@ from huggingface_hub import hf_hub_download
 repo_id = "HenryYHW/ADAS-TO"
 clip_path = "TOYOTA_PRIUS/driver_001/route_001/0"
 
-# Download metadata
+# 📋 Download metadata
 meta_path = hf_hub_download(repo_id, f"{clip_path}/meta.json", repo_type="dataset")
 with open(meta_path) as f:
     meta = json.load(f)
-print(meta)
 
-# Load vehicle state signals
-car_state_path = hf_hub_download(repo_id, f"{clip_path}/carState.csv", repo_type="dataset")
-car_state = pd.read_csv(car_state_path)
+# 🚗 Load vehicle state signals
+car_state = pd.read_csv(
+    hf_hub_download(repo_id, f"{clip_path}/carState.csv", repo_type="dataset")
+)
 print(car_state[["vEgo", "aEgo", "steeringAngleDeg", "brakePressed"]].describe())
 
-# Load ADAS controller state
-controls_path = hf_hub_download(repo_id, f"{clip_path}/controlsState.csv", repo_type="dataset")
-controls = pd.read_csv(controls_path)
+# 🤖 Load ADAS controller state
+controls = pd.read_csv(
+    hf_hub_download(repo_id, f"{clip_path}/controlsState.csv", repo_type="dataset")
+)
+
+# 📡 Load radar data
+radar = pd.read_csv(
+    hf_hub_download(repo_id, f"{clip_path}/radarState.csv", repo_type="dataset")
+)
 ```
 
 ### Iterating Over All Clips
@@ -247,13 +330,13 @@ from huggingface_hub import HfApi
 api = HfApi()
 files = api.list_repo_files("HenryYHW/ADAS-TO", repo_type="dataset")
 meta_files = [f for f in files if f.endswith("meta.json")]
-print(f"Total clips: {len(meta_files)}")
+print(f"Total clips: {len(meta_files)}")  # → 15,705
 ```
 
-### Downloading the Full Dataset
+### 💾 Download the Full Dataset
 
 ```bash
-# Using huggingface-cli
+# Using huggingface-cli (recommended)
 huggingface-cli download HenryYHW/ADAS-TO --repo-type dataset --local-dir ./ADAS-TO
 
 # Using git-lfs
@@ -261,26 +344,57 @@ git lfs install
 git clone https://huggingface.co/datasets/HenryYHW/ADAS-TO
 ```
 
-## Data Collection
+---
 
-This dataset was built from driving logs collected by the [comma.ai](https://comma.ai/) community using [openpilot](https://github.com/commaai/openpilot), an open-source ADAS platform. Logs were processed to detect ADAS disengagement events, extract synchronized video and CAN-bus signals, and package them into standardized clips.
+## 🔒 Privacy & Ethics
 
-**Privacy**: All driver and route identifiers have been anonymized. No personally identifiable information (PII) is included. Video data shows the forward road view only.
+- **Anonymized identifiers**: All driver and route IDs are replaced with anonymous tokens (`driver_XXX`, `route_XXX`)
+- **Forward-view only**: Video captures road-facing view only — no cabin or driver footage
+- **No PII**: No personally identifiable information is included in any data file
+- **Community-sourced**: Data collected through autonomous driving enthusiast communities with informed participation
 
-## Citation
+---
 
-If you use this dataset in your research, please cite:
+## 📖 Data Collection
+
+ADAS-TO was built from naturalistic driving logs contributed by **online and offline autonomous driving communities**. Participating drivers voluntarily shared their driving data collected through various ADAS-equipped vehicles during everyday driving. The raw logs were processed through an automated pipeline to:
+
+1. **Detect** ADAS disengagement events (ON→OFF transitions)
+2. **Extract** synchronized video and CAN-bus signals within a 20-second window
+3. **Validate** each clip for signal completeness and temporal alignment
+4. **Anonymize** all driver and route identifiers
+
+This community-driven collection approach enables unprecedented scale and diversity, capturing genuine driver behavior across a wide spectrum of vehicles, road types, and driving conditions.
+
+---
+
+## 📝 Citation
+
+If you use ADAS-TO in your research, please cite:
 
 ```bibtex
-@dataset{adas-to_2026,
-  title={ADAS-TO: A Large-Scale Multimodal Naturalistic Dataset and Empirical Characterization of Human Takeovers during ADAS Engagement},
-  author={Anonymous Authors},
-  year={2026},
-  publisher={Hugging Face},
-  url={https://huggingface.co/datasets/HenryYHW/ADAS-TO}
+@dataset{adas_to_2026,
+  title     = {ADAS-TO: A Large-Scale Multimodal Naturalistic Dataset and
+               Empirical Characterization of Human Takeovers during ADAS Engagement},
+  author    = {Anonymous Authors},
+  year      = {2026},
+  publisher = {Hugging Face},
+  url       = {https://huggingface.co/datasets/HenryYHW/ADAS-TO}
 }
 ```
 
-## License
+---
 
-This dataset is released under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). It is intended for academic and non-commercial research purposes.
+## 📄 License
+
+<div align="center">
+
+This dataset is released under [**CC BY-NC 4.0**](https://creativecommons.org/licenses/by-nc/4.0/).
+
+For academic and non-commercial research purposes.
+
+---
+
+*Built with ❤️ for the autonomous driving research community*
+
+</div>
