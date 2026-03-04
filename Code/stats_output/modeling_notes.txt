@@ -1,0 +1,63 @@
+========================================================================
+  MODELING NOTES — Take Over Analysis (Section IV)
+========================================================================
+
+METHOD SUMMARY
+----------------------------------------
+
+(A) Binary outcome models use GEE logistic regression with
+    exchangeable correlation structure, clustered by driver (dongle_id).
+    Fallback: cluster-robust GLM if GEE fails to converge.
+    Subset: lead-present clips only (TTC/DRAC further restricted to closing).
+    Rationale: avoids right-censoring and heavy-tailed issues with continuous
+    TTC/THW regression; threshold-event modeling is standard in traffic safety.
+
+(B) Continuous outcome models use linear mixed-effects models (REML)
+    with driver random intercept.
+    ICC quantifies driver-level variance share.
+    Stabilization time model restricted to uncensored observations.
+
+(C) OEM vs OP comparison uses inverse probability weighting (IPW).
+    Propensity covariates: ['pre_speed_mean_mps', 'pre_lead_present_rate', 'pre_min_drel_m', 'log_hz', 'pre_max_abs_steer_angle_deg']
+    Overlap restriction: propensity in (0.1, 0.9)
+    SMD balance threshold: 0.1
+    Bootstrap CI (n=1000) for weighted treatment effects.
+
+CAVEATS
+----------------------------------------
+- TTC/THW are only defined when a lead vehicle is detected;
+  results are conditional on lead presence.
+- Jerk and steer_rate are sampling-rate sensitive; qlog (10Hz)
+  and rlog (100Hz) clips may produce systematically different values.
+  See qlog vs rlog sensitivity in derived signals summary.
+- Propensity weighting assumes no unmeasured confounders;
+  self-selection into openpilot is likely correlated with
+  unobserved driver characteristics.
+- Stabilization time uses a right-censored definition at 5.0s;
+  censored clips are excluded from LMM (reported as descriptive).
+
+SAMPLE SIZES
+----------------------------------------
+  Full dataset: 15,659 clips
+  Model subset (>=5 clips/driver): 15,516 clips
+  Drivers in model subset: 272
+
+  gee_ttc_critical:
+    n_obs=7,640
+
+  gee_thw_critical:
+    n_obs=7,640
+
+  gee_drac_critical:
+    n_obs=7,640
+
+  lmm_peak_decel:
+    n_obs=15,052
+
+  lmm_peak_jerk:
+    n_obs=15,040
+
+  lmm_stabilization:
+    n_obs=4,041
+
+  propensity_oem_vs_op:

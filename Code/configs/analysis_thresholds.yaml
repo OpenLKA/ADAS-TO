@@ -1,0 +1,163 @@
+# analysis_thresholds.yaml
+# Central configuration for TakeOver analysis pipeline (Section IV)
+# All thresholds are configurable; sensitivity analysis should sweep key values.
+
+# ── Time windows (seconds, relative to takeover event at t=0) ──
+pre_window:  [-5.0, 0.0]
+post_window: [0.0, 5.0]
+full_window: [-10.0, 10.0]
+trigger_window: [-3.0, 0.5]
+
+# ── Safety metric thresholds (engineering defaults) ──
+ttc_critical_s: 1.5
+thw_critical_s: 0.8
+drac_critical_mps2: 3.0
+
+# Alternative percentile-based thresholds (computed at runtime from data)
+# Used for sensitivity analysis alongside engineering thresholds.
+percentile_thresholds:
+  ttc_percentile: 10     # P10 of TTC distribution
+  thw_percentile: 10     # P10 of THW distribution
+  drac_percentile: 90    # P90 of DRAC distribution
+
+# ── Driving behaviour thresholds ──
+steer_rate_threshold_deg_per_s: 30.0
+roughness_rms_threshold_mps2: 1.5
+close_drel_m: 10.0
+lane_prob_low: 0.3           # optional; only used if lane prob fields exist
+speed_increase_threshold_mps: 2.0
+
+# ══════════════════════════════════════════════════════════════════════
+#  Stage 1 v3: Resampling, Robust Metrics, Anomaly Detection
+# ══════════════════════════════════════════════════════════════════════
+
+# ── Resampling ──
+# Common time grid for all topics within each clip.
+# 20 Hz chosen as the highest common native rate across topics:
+#   rlog: carState=100Hz, radar=20Hz, longPlan=20Hz, model=20Hz
+#   qlog: carState=10Hz,  radar=4Hz,  longPlan=4Hz,  model=4Hz
+#   Accelerometer: ~100Hz (rlog) or ~1Hz (qlog) — excluded from resampling,
+#   roughness computed on native timestamps.
+# DO NOT resample above 20 Hz: it would fabricate information for qlog clips
+# and for all radar/longPlan/model topics.
+resampling:
+  hz: 20                        # common grid frequency
+  method_continuous: "linear"   # for vEgo, aEgo, dRel, vRel, steeringAngleDeg, etc.
+  method_boolean: "ffill"       # for leadOne.status, steeringPressed, etc.
+  method_categorical: "ffill"   # for alertText1, etc.
+
+# ── Robust TTC / DRAC ──
+# Avoid long-tail artifacts from tiny closing speeds or small dRel.
+robust_ttc_drac:
+  closing_speed_min_mps: 0.5    # only compute TTC/DRAC when |vRel| > this
+  drel_min_m: 5.0               # only compute DRAC when dRel > this
+  ttc_cap_s: 100.0              # cap TTC to reduce extreme tail; store both raw and capped
+  drac_cap_mps2: 50.0           # cap DRAC similarly
+
+# ── Exposure duration thresholds ──
+# Compute time-under-threshold features (seconds in Wpre/Wpost).
+exposure_thresholds:
+  ttc_thresholds_s:  [1.5, 2.0, 3.0]
+  thw_thresholds_s:  [0.8, 1.0, 1.5]
+  drac_thresholds_mps2: [3.0, 4.0]
+
+# ── Stabilization time metric ──
+# Post-takeover stabilization: first continuous Δ-second window where
+# |accel| < a0 AND |jerk| < j0.
+# Compute for both Wpost=[0,5] and extended [0,10].
+stabilization:
+  accel_threshold_mps2: 0.5    # a0
+  jerk_threshold_mps3: 1.0     # j0
+  sustain_duration_s: 1.0      # Δ
+  max_search_s_short: 5.0      # Wpost cap
+  max_search_s_long: 10.0      # extended cap
+
+# ── Smoothing for derivative metrics ──
+# Applied BEFORE differentiation to avoid noise amplification.
+# Window is expressed in seconds; converted to samples using resample_hz.
+smoothing:
+  method: "savgol"             # savgol or rolling_mean
+  savgol_window_s: 0.3        # window in seconds
+  savgol_polyorder: 2
+  rolling_window_s: 0.3       # fallback rolling mean window
+
+# ── Anomaly detection thresholds ──
+# Clips exceeding these are flagged for manual review or YOLO tagging.
+anomaly:
+  jerk_abs_threshold_mps3: 50.0         # extreme absolute jerk
+  steer_rate_abs_threshold_deg_s: 200.0  # extreme steering rate
+  ttc_raw_max_valid_s: 200.0             # TTC above this is suspect
+  drac_raw_max_valid_mps2: 100.0         # DRAC above this is suspect
+  lead_dropout_max: 10                   # number of lead status transitions
+  nan_rate_threshold: 0.5                # fraction of window that is NaN
+
+# ── YOLO scene tagging (optional) ──
+yolo:
+  enabled: false                    # set to true to run YOLO on selected clips
+  model: "yolov8n.pt"              # Ultralytics model name
+  confidence_threshold: 0.35
+  keyframe_times_s: [-3, -2, -1, 0, 1]  # relative to t=0
+  target_classes:                  # COCO class names to detect
+    - traffic light
+    - stop sign
+    - person
+    - bicycle
+    - car
+    - bus
+    - truck
+  # Clips are selected for YOLO if they have any anomaly flag OR are
+  # scenario=intersection_odd OR scenario=uncertain_mixed.
+
+# ── Computation ──
+random_seed: 42
+n_workers: 12
+eps: 1.0e-6   # avoid division by zero
+min_speed_for_thw_mps: 0.5    # avoid huge THW at near-zero speed
+
+# ── Scenario labels (priority order) ──
+scenario_categories:
+  - longitudinal_conflict
+  - lateral_conflict
+  - planned_lane_change
+  - planned_acceleration
+  - intersection_odd
+  - ride_discomfort
+  - system_boundary
+  - discretionary
+  - uncertain_mixed
+
+# ── Statistical modeling ──
+min_clips_per_driver: 5
+
+# GEE / cluster-robust settings
+gee:
+  family: binomial
+  correlation: exchangeable
+  cluster_var: dongle_id
+
+# Propensity score matching for OEM vs OP comparison
+propensity:
+  treatment_var: source_group      # "openpilot" vs "OEM"
+  covariates:
+    - pre_speed_mean_mps
+    - pre_lead_present_rate
+    - pre_min_drel_m
+    - log_hz
+    - pre_max_abs_steer_angle_deg
+  caliper: 0.2                     # in std of logit propensity
+  smd_threshold: 0.1               # acceptable standardized mean difference
+
+# ── Paths (relative to Code/) ──
+paths:
+  per_clip: stats_output/per_clip.csv
+  engagement_source: stats_output/engagement_source.csv
+  derived_signals: stats_output/derived_signals.csv
+  derived_signals_v3: stats_output/derived_signals_v3.parquet
+  derived_signals_v3_csv: stats_output/derived_signals_v3.csv
+  anomaly_flags: stats_output/anomaly_flags.csv
+  yolo_scene_tags: stats_output/yolo_scene_tags.csv
+  scenario_labels: stats_output/scenario_labels.csv
+  analysis_master: stats_output/analysis_master.csv
+  model_results: stats_output/model_results.json
+  modeling_notes: stats_output/modeling_notes.txt
+  figures: paper_figs

@@ -1,0 +1,602 @@
+{
+  "gee_ttc_critical": {
+    "method": "GEE_logistic_exchangeable",
+    "label": "P(TTC < 1.5s | closing lead)",
+    "formula": "ttc_critical ~ scenario + speed + covariates",
+    "n_obs": 7640,
+    "n_events": 56,
+    "event_rate": 0.007329842931937173,
+    "n_clusters": 263,
+    "coefficients": {
+      "scen_lateral_conflict": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "scen_planned_lane_change": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "scen_planned_acceleration": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "scen_ride_discomfort": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "scen_system_boundary": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "scen_discretionary": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "scen_uncertain_mixed": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "speed_mps": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "pre_lead_present_rate": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "alert_present": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      }
+    }
+  },
+  "gee_thw_critical": {
+    "method": "GEE_logistic_exchangeable",
+    "label": "P(THW < 0.8s | lead present)",
+    "formula": "thw_critical ~ scenario + speed + covariates",
+    "n_obs": 7640,
+    "n_events": 952,
+    "event_rate": 0.12460732984293194,
+    "n_clusters": 263,
+    "coefficients": {
+      "scen_lateral_conflict": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "scen_planned_lane_change": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "scen_planned_acceleration": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "scen_ride_discomfort": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "scen_system_boundary": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "scen_discretionary": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "scen_uncertain_mixed": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "speed_mps": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "pre_lead_present_rate": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "alert_present": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      }
+    }
+  },
+  "gee_drac_critical": {
+    "method": "GEE_logistic_exchangeable",
+    "label": "P(DRAC > 3.0 | closing lead)",
+    "formula": "drac_critical ~ scenario + speed + covariates",
+    "n_obs": 7640,
+    "n_events": 22,
+    "event_rate": 0.0028795811518324606,
+    "n_clusters": 263,
+    "coefficients": {
+      "scen_lateral_conflict": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "scen_planned_lane_change": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "scen_planned_acceleration": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "scen_ride_discomfort": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "scen_system_boundary": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "scen_discretionary": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "scen_uncertain_mixed": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "speed_mps": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "pre_lead_present_rate": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      },
+      "alert_present": {
+        "estimate": NaN,
+        "odds_ratio": NaN,
+        "ci_lower": NaN,
+        "ci_upper": NaN,
+        "or_ci_lower": NaN,
+        "or_ci_upper": NaN,
+        "p_value": NaN
+      }
+    }
+  },
+  "lmm_peak_decel": {
+    "method": "LMM_REML",
+    "label": "Peak deceleration (m/s\u00b2)",
+    "formula": "post_min_accel_mps2 ~ C(scenario) + speed",
+    "n_obs": 15052,
+    "n_groups": 272,
+    "icc": 0.15898434843267628,
+    "random_intercept_var": 0.21518346559975363,
+    "residual_var": 1.1383048980103,
+    "converged": true,
+    "coefficients": {
+      "Intercept": {
+        "estimate": -0.9486013838422303,
+        "ci_lower": -1.0267894382838778,
+        "ci_upper": -0.8704133294005827,
+        "p_value": 5.524338951381765e-125
+      },
+      "C(scenario)[T.lateral_conflict]": {
+        "estimate": -0.15819420179262866,
+        "ci_lower": -0.21280341996907193,
+        "ci_upper": -0.1035849836161854,
+        "p_value": 1.3651523594061397e-08
+      },
+      "C(scenario)[T.planned_lane_change]": {
+        "estimate": -0.6479298523406468,
+        "ci_lower": -0.7145550002250303,
+        "ci_upper": -0.5813047044562634,
+        "p_value": 5.359626948143989e-81
+      },
+      "C(scenario)[T.planned_acceleration]": {
+        "estimate": 1.028492762921502,
+        "ci_lower": 0.8984140607362252,
+        "ci_upper": 1.1585714651067787,
+        "p_value": 3.6438045936338264e-54
+      },
+      "C(scenario)[T.intersection_odd]": {
+        "estimate": 0.6662032687775734,
+        "ci_lower": 0.381132712796941,
+        "ci_upper": 0.9512738247582058,
+        "p_value": 4.6410897257979425e-06
+      },
+      "C(scenario)[T.ride_discomfort]": {
+        "estimate": -0.01977262150804824,
+        "ci_lower": -0.40044182633109593,
+        "ci_upper": 0.3608965833149994,
+        "p_value": 0.9189122958402023
+      },
+      "C(scenario)[T.system_boundary]": {
+        "estimate": 0.4084121560661506,
+        "ci_lower": 0.0981823561366365,
+        "ci_upper": 0.7186419559956647,
+        "p_value": 0.009872634690213827
+      },
+      "C(scenario)[T.discretionary]": {
+        "estimate": -0.14162204148155652,
+        "ci_lower": -0.19459496640292545,
+        "ci_upper": -0.08864911656018759,
+        "p_value": 1.6064274115072534e-07
+      },
+      "C(scenario)[T.uncertain_mixed]": {
+        "estimate": 0.0016083845285845362,
+        "ci_lower": -0.0692486766776787,
+        "ci_upper": 0.07246544573484778,
+        "p_value": 0.9645144405607631
+      },
+      "speed": {
+        "estimate": -0.023672685705471142,
+        "ci_lower": -0.026210204520210924,
+        "ci_upper": -0.02113516689073136,
+        "p_value": 1.0969054836484897e-74
+      }
+    }
+  },
+  "lmm_peak_jerk": {
+    "method": "LMM_REML",
+    "label": "Peak |jerk| (m/s\u00b3)",
+    "formula": "post_max_abs_jerk_mps3 ~ C(scenario) + speed",
+    "n_obs": 15040,
+    "n_groups": 272,
+    "icc": 0.12657588622001786,
+    "random_intercept_var": 2.4216235257116234,
+    "residual_var": 16.71016846113086,
+    "converged": true,
+    "coefficients": {
+      "Intercept": {
+        "estimate": 4.836603903376038,
+        "ci_lower": 4.55603003084626,
+        "ci_upper": 5.117177775905817,
+        "p_value": 3.128452554562567e-250
+      },
+      "C(scenario)[T.lateral_conflict]": {
+        "estimate": 0.07199870722381913,
+        "ci_lower": -0.13714893521359273,
+        "ci_upper": 0.281146349661231,
+        "p_value": 0.4998573949178553
+      },
+      "C(scenario)[T.planned_lane_change]": {
+        "estimate": 0.04856885086077452,
+        "ci_lower": -0.20638769592076395,
+        "ci_upper": 0.30352539764231296,
+        "p_value": 0.7088728724297152
+      },
+      "C(scenario)[T.planned_acceleration]": {
+        "estimate": -0.7828598852126349,
+        "ci_lower": -1.2809056475929432,
+        "ci_upper": -0.2848141228323267,
+        "p_value": 0.0020644833627491434
+      },
+      "C(scenario)[T.intersection_odd]": {
+        "estimate": -1.9998018195942877,
+        "ci_lower": -3.0908677027275546,
+        "ci_upper": -0.9087359364610208,
+        "p_value": 0.0003276527846287878
+      },
+      "C(scenario)[T.ride_discomfort]": {
+        "estimate": 0.8902096846677667,
+        "ci_lower": -0.5679487797284013,
+        "ci_upper": 2.3483681490639348,
+        "p_value": 0.23147680781365054
+      },
+      "C(scenario)[T.system_boundary]": {
+        "estimate": -1.6772355292626508,
+        "ci_lower": -2.8650300557140413,
+        "ci_upper": -0.48944100281126013,
+        "p_value": 0.005647347479013538
+      },
+      "C(scenario)[T.discretionary]": {
+        "estimate": -0.6131966014899782,
+        "ci_lower": -0.8161117145723562,
+        "ci_upper": -0.4102814884076003,
+        "p_value": 3.16338518418138e-09
+      },
+      "C(scenario)[T.uncertain_mixed]": {
+        "estimate": -0.6863613230096687,
+        "ci_lower": -0.9576422395994969,
+        "ci_upper": -0.41508040641984045,
+        "p_value": 7.090886570790234e-07
+      },
+      "speed": {
+        "estimate": -0.0025416213884909473,
+        "ci_lower": -0.012222764049234164,
+        "ci_upper": 0.0071395212722522704,
+        "p_value": 0.6068635827695743
+      }
+    }
+  },
+  "lmm_stabilization": {
+    "method": "LMM_REML",
+    "label": "Stabilization time (s, uncensored)",
+    "formula": "stabilization_time_s ~ C(scenario) + speed",
+    "n_obs": 4041,
+    "n_groups": 254,
+    "icc": 0.07640718118058237,
+    "random_intercept_var": 0.12390093407128581,
+    "residual_var": 1.4976866203557737,
+    "converged": true,
+    "coefficients": {
+      "Intercept": {
+        "estimate": 1.062920276083007,
+        "ci_lower": 0.9598510319526063,
+        "ci_upper": 1.1659895202134076,
+        "p_value": 7.602382930252808e-91
+      },
+      "C(scenario)[T.lateral_conflict]": {
+        "estimate": 0.156646090508107,
+        "ci_lower": 0.04177199411174255,
+        "ci_upper": 0.27152018690447144,
+        "p_value": 0.007524995337164627
+      },
+      "C(scenario)[T.planned_lane_change]": {
+        "estimate": 0.21251968629806056,
+        "ci_lower": 0.0275165749611683,
+        "ci_upper": 0.3975227976349528,
+        "p_value": 0.024355109124354717
+      },
+      "C(scenario)[T.planned_acceleration]": {
+        "estimate": 0.9061283378935066,
+        "ci_lower": 0.5499686948393283,
+        "ci_upper": 1.2622879809476848,
+        "p_value": 6.149286728224161e-07
+      },
+      "C(scenario)[T.intersection_odd]": {
+        "estimate": -0.7373275750949327,
+        "ci_lower": -1.1013466084808985,
+        "ci_upper": -0.37330854170896705,
+        "p_value": 7.188926542591692e-05
+      },
+      "C(scenario)[T.ride_discomfort]": {
+        "estimate": 0.38137234479607224,
+        "ci_lower": -0.6980972911067502,
+        "ci_upper": 1.4608419806988946,
+        "p_value": 0.4886563391284787
+      },
+      "C(scenario)[T.system_boundary]": {
+        "estimate": -0.26949951995426824,
+        "ci_lower": -0.8895411164602727,
+        "ci_upper": 0.3505420765517362,
+        "p_value": 0.394273252122163
+      },
+      "C(scenario)[T.discretionary]": {
+        "estimate": 0.20604618363373525,
+        "ci_lower": 0.09071604953554198,
+        "ci_upper": 0.32137631773192854,
+        "p_value": 0.000462426706424595
+      },
+      "C(scenario)[T.uncertain_mixed]": {
+        "estimate": -0.07124076590779907,
+        "ci_lower": -0.229663263143328,
+        "ci_upper": 0.08718173132772986,
+        "p_value": 0.37811588534911633
+      },
+      "speed": {
+        "estimate": 0.018656346549429326,
+        "ci_lower": 0.01334659205386332,
+        "ci_upper": 0.02396610104499533,
+        "p_value": 5.717094229197966e-12
+      }
+    }
+  },
+  "propensity_oem_vs_op": {
+    "method": "IPW_ATE",
+    "n_total": 12431,
+    "n_overlap": 10165,
+    "n_excluded_overlap": 2266,
+    "overlap_bounds": [
+      0.1,
+      0.9
+    ],
+    "smd_before": {
+      "pre_speed_mean_mps": -0.48092187922543705,
+      "pre_lead_present_rate": -0.07248023547203435,
+      "pre_min_drel_m": -0.16554580528628357,
+      "log_hz": -0.022634100486012915,
+      "pre_max_abs_steer_angle_deg": 0.5101470892135692
+    },
+    "smd_after": {
+      "pre_speed_mean_mps": 0.1261086832513143,
+      "pre_lead_present_rate": 0.13860841191662462,
+      "pre_min_drel_m": 0.1428924194673385,
+      "log_hz": 0.12142496002682723,
+      "pre_max_abs_steer_angle_deg": 0.06595223773699072
+    },
+    "smd_threshold": 0.1,
+    "max_smd_after": 0.1428924194673385,
+    "effects": {
+      "pre_ttc_min_s": {
+        "label": "Min TTC (s)",
+        "op_weighted_mean": 11.901248576761212,
+        "oem_weighted_mean": 14.030092930911058,
+        "difference": -2.1288443541498463,
+        "ci_lower": -3.2081909423579424,
+        "ci_upper": -1.017802818898343,
+        "n_op": 933,
+        "n_oem": 3439
+      },
+      "pre_thw_min_s": {
+        "label": "Min THW (s)",
+        "op_weighted_mean": 2.1026928836239427,
+        "oem_weighted_mean": 2.1694370676744206,
+        "difference": -0.06674418405047788,
+        "ci_lower": -0.17634471350381237,
+        "ci_upper": 0.04121277446963869,
+        "n_op": 1078,
+        "n_oem": 4177
+      },
+      "post_max_abs_jerk_mps3": {
+        "label": "Max |Jerk| (m/s\u00b3)",
+        "op_weighted_mean": 3.9076955344612796,
+        "oem_weighted_mean": 4.7743375171670985,
+        "difference": -0.8666419827058189,
+        "ci_lower": -1.0468460684805883,
+        "ci_upper": -0.6750419103314326,
+        "n_op": 2060,
+        "n_oem": 7873
+      },
+      "post_min_accel_mps2": {
+        "label": "Peak decel (m/s\u00b2)",
+        "op_weighted_mean": -1.4253985153770201,
+        "oem_weighted_mean": -1.3936934849556608,
+        "difference": -0.031705030421359304,
+        "ci_lower": -0.08593138137446693,
+        "ci_upper": 0.019717925427316638,
+        "n_op": 2065,
+        "n_oem": 7873
+      },
+      "stabilization_time_s": {
+        "label": "Stabilization time (s)",
+        "op_weighted_mean": 4.148294237795291,
+        "oem_weighted_mean": 3.976050790353958,
+        "difference": 0.1722434474413328,
+        "ci_lower": 0.08568764400730867,
+        "ci_upper": 0.25481885466370596,
+        "n_op": 2060,
+        "n_oem": 7873
+      }
+    }
+  }
+}

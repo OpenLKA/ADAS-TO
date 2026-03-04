@@ -1,0 +1,262 @@
+========================================================================
+  ENGAGEMENT SOURCE ANALYSIS
+========================================================================
+
+Total clips analyzed: 15,705
+
+────────────────────────────────────────────────────────────────────────
+1. OVERALL SOURCE DISTRIBUTION
+────────────────────────────────────────────────────────────────────────
+  oem_only                      :  9,550  ( 60.8%)
+  both                          :  2,980  ( 19.0%)
+  openpilot_only                :  2,261  ( 14.4%)
+  oem_primary                   :    398  (  2.5%)
+  neither                       :    268  (  1.7%)
+  openpilot_primary             :    248  (  1.6%)
+
+  Simplified classification:
+    openpilot_longitudinal        :  2,509  ( 16.0%)
+    oem_adas                      :  9,948  ( 63.3%)
+    both_active                   :  2,980  ( 19.0%)
+    other                         :    268  (  1.7%)
+
+────────────────────────────────────────────────────────────────────────
+2. BY BRAND
+────────────────────────────────────────────────────────────────────────
+  Brand            Total   openpilot    OEM ADAS      Both   Other
+  ─────────────── ──────  ──────────  ──────────  ────────  ──────
+  Rivian           2,127           —  2124 (100%)         —       3
+  Acura            1,892           —  1863 (98%)        24       5
+  Ford             1,803   878 (49%)   557 (31%)       339      29
+  Hyundai          1,737   351 (20%)   786 (45%)       555      45
+  Honda            1,486    129 (9%)  1036 (70%)       310      11
+  Toyota           1,311   380 (29%)   552 (42%)       326      53
+  Chevrolet        1,289     75 (6%)   679 (53%)       515      20
+  Volkswagen       1,136   195 (17%)   647 (57%)       288       6
+  Kia                972   221 (23%)   543 (56%)       163      45
+  Tesla              745      2 (0%)   616 (83%)       124       3
+  Ram                268   143 (53%)     25 (9%)        92       8
+  Genesis            252      3 (1%)   155 (62%)        76      18
+  Subaru             166    37 (22%)    84 (51%)        44       1
+  Skoda               88    39 (44%)    25 (28%)        23       1
+  Porsche             76           —    47 (62%)        28       1
+  Nissan              68           —    64 (94%)         4       —
+  Volvo               67      1 (1%)    57 (85%)         9       —
+  Mazda               52    29 (56%)     5 (10%)        14       4
+  Jeep                43     7 (16%)    16 (37%)        20       —
+  Audi                41           —    40 (98%)         1       —
+  Lexus               38    12 (32%)     6 (16%)        15       5
+  Byd                  2           —    2 (100%)         —       —
+
+────────────────────────────────────────────────────────────────────────
+3. BY CAR MODEL (top 30 by clip count)
+────────────────────────────────────────────────────────────────────────
+  Car Model                                 Total  openpilot        OEM   Both
+  ──────────────────────────────────────── ────── ────────── ────────── ──────
+  RIVIAN_R1_GEN1                            2,127          — 2124 (100%)      0
+  ACURA_MDX_3G_MMR                          1,863          — 1845 (99%)     13
+  FORD_F_150_MK14                           1,226  755 (62%)  354 (29%)     94
+  CHEVROLET_SILVERADO                         639     3 (0%)  469 (73%)    167
+  TOYOTA_PRIUS                                482  116 (24%)  235 (49%)    105
+  HONDA_CIVIC                                 470     2 (0%)  328 (70%)    139
+  TESLA_AP3_MODEL_3                           432          —  363 (84%)     68
+  FORD_MAVERICK_MK1                           300   98 (33%)     8 (3%)    188
+  HYUNDAI_IONIQ_5                             266   56 (21%)   54 (20%)    135
+  CHEVROLET_BOLT_EUV_2022                     244   24 (10%)   57 (23%)    159
+  TOYOTA_RAV4_TSS2_2023                       228   92 (40%)  103 (45%)     18
+  RAM_HD_5TH_GEN                              221  125 (57%)    14 (6%)     75
+  VOLKSWAGEN_JETTA_MK7                        215    10 (5%)  115 (53%)     90
+  KIA_EV6                                     209    16 (8%)  167 (80%)     26
+  VOLKSWAGEN_GOLF_MK7                         192   84 (44%)   91 (47%)     13
+  KIA_NIRO_EV                                 185          —  143 (77%)     20
+  HYUNDAI_IONIQ_6                             177          — 177 (100%)      0
+  VOLKSWAGEN_ATLAS_MK1                        153     6 (4%)  130 (85%)     17
+  TESLA_MODEL_X                               152          — 152 (100%)      0
+  HYUNDAI_IONIQ_5_2022                        145   16 (11%)   55 (38%)     66
+  HONDA_CIVIC_2022                            141          — 141 (100%)      0
+  TESLA_MODELY                                141     2 (1%)   91 (65%)     46
+  KIA_EV6_2022                                138  112 (81%)          —     20
+  HYUNDAI_SONATA_HEV_2024                     134  105 (78%)     1 (1%)     28
+  FORD_ESCAPE_MK4_5                           132          — 132 (100%)      0
+  VOLKSWAGEN_SHARAN_MK2                       131   18 (14%)   34 (26%)     79
+  HONDA_CIVIC_BOSCH                           130   16 (12%)   77 (59%)     37
+  VOLKSWAGEN_PASSAT_MK8                       119          — 119 (100%)      0
+  GENESIS_G70_2024                            115     3 (3%)   86 (75%)     10
+  HONDA_ODYSSEY_2018                          115   76 (66%)          —     34
+
+────────────────────────────────────────────────────────────────────────
+4. ENGAGEMENT PERCENTAGE STATISTICS (pre-event window)
+────────────────────────────────────────────────────────────────────────
+  controlsState.enabled % (when any):
+    n=5,887  mean=77.2%  median=86.5%
+  cruiseState.enabled % (when any):
+    n=13,176  mean=78.3%  median=83.0%
+
+────────────────────────────────────────────────────────────────────────
+5. COMPLETE MODEL LIST WITH CLASSIFICATION
+────────────────────────────────────────────────────────────────────────
+  Car Model                                         N openpilot   OEM  Both Primary Source      
+  ───────────────────────────────────────────── ───── ───── ───── ───── ────────────────────
+  RIVIAN_R1_GEN1                                2,127     0 2,124     0 OEM ADAS            
+  ACURA_MDX_3G_MMR                              1,863     0 1,845    13 OEM ADAS            
+  FORD_F_150_MK14                               1,226   755   354    94 openpilot           
+  CHEVROLET_SILVERADO                             639     3   469   167 OEM ADAS            
+  TOYOTA_PRIUS                                    482   116   235   105 OEM ADAS            
+  HONDA_CIVIC                                     470     2   328   139 OEM ADAS            
+  TESLA_AP3_MODEL_3                               432     0   363    68 OEM ADAS            
+  FORD_MAVERICK_MK1                               300    98     8   188 both                
+  HYUNDAI_IONIQ_5                                 266    56    54   135 both                
+  CHEVROLET_BOLT_EUV_2022                         244    24    57   159 both                
+  TOYOTA_RAV4_TSS2_2023                           228    92   103    18 OEM ADAS            
+  RAM_HD_5TH_GEN                                  221   125    14    75 openpilot           
+  VOLKSWAGEN_JETTA_MK7                            215    10   115    90 OEM ADAS            
+  KIA_EV6                                         209    16   167    26 OEM ADAS            
+  VOLKSWAGEN_GOLF_MK7                             192    84    91    13 OEM ADAS            
+  KIA_NIRO_EV                                     185     0   143    20 OEM ADAS            
+  HYUNDAI_IONIQ_6                                 177     0   177     0 OEM ADAS            
+  VOLKSWAGEN_ATLAS_MK1                            153     6   130    17 OEM ADAS            
+  TESLA_MODEL_X                                   152     0   152     0 OEM ADAS            
+  HYUNDAI_IONIQ_5_2022                            145    16    55    66 both                
+  HONDA_CIVIC_2022                                141     0   141     0 OEM ADAS            
+  TESLA_MODELY                                    141     2    91    46 OEM ADAS            
+  KIA_EV6_2022                                    138   112     0    20 openpilot           
+  HYUNDAI_SONATA_HEV_2024                         134   105     1    28 openpilot           
+  FORD_ESCAPE_MK4_5                               132     0   132     0 OEM ADAS            
+  VOLKSWAGEN_SHARAN_MK2                           131    18    34    79 both                
+  HONDA_CIVIC_BOSCH                               130    16    77    37 OEM ADAS            
+  VOLKSWAGEN_PASSAT_MK8                           119     0   119     0 OEM ADAS            
+  GENESIS_G70_2024                                115     3    86    10 OEM ADAS            
+  HONDA_ODYSSEY_2018                              115    76     0    34 openpilot           
+  HYUNDAI_KONA_ELECTRIC_2019                      115     8     8    98 both                
+  VOLKSWAGEN_PASSAT_NMS                           111    49    46    13 openpilot           
+  CHEVROLET_BOLT_EUV                              107     3    84    18 OEM ADAS            
+  CHEVROLET_SILVERADO_1500_2020                   104     7    16    81 both                
+  TOYOTA_ALPHARD_2020                             100    81     1    13 openpilot           
+  HYUNDAI_SONATA                                   98     0    39    59 both                
+  HONDA_ACCORD_11G                                 97     0    93     4 OEM ADAS            
+  TOYOTA_CAMRY_2021                                95     0    14    81 both                
+  HYUNDAI_PALISADE_2023                            92     1    51    40 OEM ADAS            
+  TOYOTA_COROLLA                                   92    65    23     2 openpilot           
+  CHEVROLET_VOLT_PREMIER_2018                      90    22    16    32 both                
+  HONDA_FIT_4G                                     90     0    89     0 OEM ADAS            
+  KIA_SPORTAGE_5TH_GEN                             84    53    12    18 openpilot           
+  FORD_MUSTANG_MACH_E_MK1                          79    15    37    26 OEM ADAS            
+  HYUNDAI_PALISADE                                 79     0    79     0 OEM ADAS            
+  HYUNDAI_KONA_EV                                  78     0    78     0 OEM ADAS            
+  TOYOTA_CAMRY_TSS2                                78     1    77     0 OEM ADAS            
+  VOLKSWAGEN_TIGUAN_MK2                            78    19     2    57 both                
+  TOYOTA_COROLLA_TSS2                              77     0    44    32 OEM ADAS            
+  PORSCHE_MACAN_MK1                                76     0    47    28 OEM ADAS            
+  KIA_CARNIVAL_4TH_GEN                             73     4    55    11 OEM ADAS            
+  SKODA_SUPERB_MK3                                 69    34    18    17 openpilot           
+  HONDA_ACCORD_HYBRID_2018                         66     1     9    55 both                
+  HONDA_CITY_7G                                    65     0    63     0 OEM ADAS            
+  KIA_NIRO_PHEV_2022                               65     0    64     0 OEM ADAS            
+  CHEVROLET_TRAILBLAZER                            64    16     4    44 both                
+  HYUNDAI_ELANTRA_2022_NON_SCC                     64    36    27     0 openpilot           
+  VOLKSWAGEN_ID4_MK1                               60     0    60     0 OEM ADAS            
+  GENESIS_GV60_EV_1ST_GEN                          59     0    54     3 OEM ADAS            
+  HONDA_CRV_6G                                     59     0    59     0 OEM ADAS            
+  HYUNDAI_ELANTRA_HEV_2024                         58     0    58     0 OEM ADAS            
+  VOLVO_V60                                        57     1    56     0 OEM ADAS            
+  KIA_EV9                                          53     0    53     0 OEM ADAS            
+  MAZDA_CX5_2022                                   52    29     5    14 openpilot           
+  SUBARU_IMPREZA                                   51    21    14    16 openpilot           
+  HONDA_ACCORD                                     50     0    46     3 OEM ADAS            
+  HYUNDAI_IONIQ_6_2023                             47     0    11    36 both                
+  RAM_1500_5TH_GEN                                 47    18    11    17 openpilot           
+  TOYOTA_HIGHLANDER_2020                           46    22     0    21 openpilot           
+  TOYOTA_RAV4_PRIME                                46     1    30    15 OEM ADAS            
+  KIA_NIRO_HYBRID_2ND_GEN                          45    15     1    28 both                
+  NISSAN_LEAF                                      43     0    39     4 OEM ADAS            
+  TOYOTA_RAV4_2023                                 40     0    13    27 both                
+  HYUNDAI_IONIQ_PHEV_2020                          39    29     0     6 openpilot           
+  GENESIS_G70_1ST_GEN_FL                           38     0     1    37 both                
+  HYUNDAI_SANTA_FE_5TH_GEN                         38     0    34     4 OEM ADAS            
+  HYUNDAI_ELANTRA_2021                             35    20     0    12 openpilot           
+  KiaNiro2023                                      35     5     3    23 both                
+  CHEVROLET_EQUINOX                                34     0    27     7 OEM ADAS            
+  HONDA_HRV_3G                                     33     0    16    17 both                
+  AUDI_Q5_MK1                                      31     0    31     0 OEM ADAS            
+  HONDA_ODYSSEY_CHN_2019                           31     1    14    16 both                
+  HYUNDAI_IONIQ_5_PE                               31     0    31     0 OEM ADAS            
+  ACURA_INTEGRA                                    29     0    18    11 OEM ADAS            
+  FORD_BRONCO_SPORT_MK1                            29     0    16    13 OEM ADAS            
+  GENESIS_GV70_1ST_GEN                             27     0     1    26 both                
+  HONDA_CLARITY_2018                               27    27     0     0 openpilot           
+  HYUNDAI_TUCSON_HYBRID_4TH_GEN                    27    16     0     9 openpilot           
+  HYUNDAI_SONATA_2020                              26    14     0    12 openpilot           
+  HYUNDAI_SONATA_HYBRID                            26     7    15     4 OEM ADAS            
+  HYUNDAI_IONIQ_ELECTRIC_2020                      25    22     0     2 openpilot           
+  NISSAN_ROGUE                                     25     0    25     0 OEM ADAS            
+  SUBARU_CROSSTREK_2024                            25     0    25     0 OEM ADAS            
+  SUBARU_FORESTER                                  24     0    18     6 OEM ADAS            
+  HYUNDAI_KONA                                     23     0    17     2 OEM ADAS            
+  VOLKSWAGEN_TAOS_MK1                              23     0    23     0 OEM ADAS            
+  FORD_F_150_LIGHTNING_MK1                         21     4     6    11 both                
+  HONDA_ODYSSEY_5G_MMR                             21     0    21     0 OEM ADAS            
+  HONDA_CRV_5G                                     20     0    20     0 OEM ADAS            
+  SUBARU_FORESTER_2022                             20     1    10     9 OEM ADAS            
+  HONDA_CLARITY                                    19     4    11     4 OEM ADAS            
+  HONDA_PILOT_4G                                   19     0    17     2 OEM ADAS            
+  HYUNDAI_ELANTRA_2024                             19     0     1    18 both                
+  HYUNDAI_ELANTRA_HEV_2021                         19     0    19     0 OEM ADAS            
+  JEEP_CHEROKEE_5TH_GEN                            19     0     1    18 both                
+  SKODA_KODIAQ_1ST_GEN                             19     5     7     6 OEM ADAS            
+  VOLKSWAGEN_JETTA_MK6                             19     0    19     0 OEM ADAS            
+  KIA_NIRO_EV_2020                                 18     5     0     8 both                
+  CHEVROLET_VOLT_PREMIER_2017                      17     1     9     7 OEM ADAS            
+  HONDA_PILOT                                      17     0    17     0 OEM ADAS            
+  KIA_STINGER                                      17     0    17     0 OEM ADAS            
+  TESLA_MODEL_S_RAVEN                              17     0     7    10 both                
+  HYUNDAI_SANTA_FE                                 16    12     2     2 openpilot           
+  HYUNDAI_SONATA_2024                              16    12     0     4 openpilot           
+  KIA_CARNIVAL_HEV_4TH_GEN                         16     0    16     0 OEM ADAS            
+  KIA_NIRO_EV_2ND_GEN                              16     6     0     8 both                
+  LEXUS_ES_TSS2                                    16     9     3     4 openpilot           
+  SUBARU_OUTBACK_PREGLOBAL                         15     0     3    11 both                
+  TOYOTA_HIGHLANDER                                15     1     6     8 both                
+  FORD_RANGER_MK2                                  14     3     8     2 OEM ADAS            
+  JEEP_GRAND_CHEROKEE                              14     0    14     0 OEM ADAS            
+  SUBARU_LEGACY_2025                               14    12     0     2 openpilot           
+  HYUNDAI_IONIQ_HEV_2022                           11     0    11     0 OEM ADAS            
+  AUDI_A4_4TH_GEN                                  10     0     9     1 OEM ADAS            
+  FORD_EXPLORER_MK6                                10     3     0     7 both                
+  HONDA_ODYSSEY                                    10     0    10     0 OEM ADAS            
+  HYUNDAI_KONA_2022                                10     0    10     0 OEM ADAS            
+  HYUNDAI_SANTA_FE_2019                            10     0     0    10 both                
+  JEEP_GRAND_CHEROKEE_2019                         10     7     1     2 openpilot           
+  SUBARU_IMPREZA_2020                              10     0    10     0 OEM ADAS            
+  VOLVO_V40_2017                                   10     0     1     9 both                
+  HYUNDAI_KONA_EV_2022                              9     0     9     0 OEM ADAS            
+  KIA_CEED_PHEV_2022_NON_SCC                        9     0     9     0 OEM ADAS            
+  VOLKSWAGEN_CADDY_3RD-GEN                          9     1     2     6 both                
+  VOLKSWAGEN_UP_MK1                                 9     8     0     0 openpilot           
+  HYUNDAI_KONA_2ND_GEN                              8     0     0     8 both                
+  HYUNDAI_TUCSON_HEV_2025                           8     0     8     0 OEM ADAS            
+  LEXUS_RC_TSS2                                     8     3     3     2 openpilot           
+  VOLKSWAGEN_TRANSPORTER_T61                        8     0     0     8 both                
+  KIA_K8_HYBRID_1ST_GEN                             7     6     0     1 openpilot           
+  LEXUS_RX_TSS2                                     6     0     0     2 both                
+  VOLKSWAGEN_ID4_MK2                                6     0     6     0 OEM ADAS            
+  VOLKSWAGEN_TOURAN_2ND_GEN                         6     1     0     5 both                
+  CHEVROLET_EQUINOX_2019                            5     0     3     2 OEM ADAS            
+  GENESIS_GV80_2025                                 5     0     5     0 OEM ADAS            
+  HONDA_CRV_HYBRID                                  5     0     5     0 OEM ADAS            
+  LEXUS_LC_2024                                     5     0     0     5 both                
+  TOYOTA_YARIS                                      5     0     5     0 OEM ADAS            
+  GENESIS_GV80                                      4     0     4     0 OEM ADAS            
+  GENESIS_GV80_2024                                 4     0     4     0 OEM ADAS            
+  HYUNDAI_TUCSON_2019                               4     0     0     4 both                
+  HONDA_RIDGELINE_2017                              3     3     0     0 openpilot           
+  KIA_EV6_2025                                      3     0     3     0 OEM ADAS            
+  LEXUS_RX_HYBRID_2017                              3     0     0     2 both                
+  SUBARU_ASCENT_2023                                3     0     3     0 OEM ADAS            
+  SUBARU_OUTBACK_2018_-_2019                        3     3     0     0 openpilot           
+  TESLA_MODEL_3                                     3     0     3     0 OEM ADAS            
+  TOYOTA_HIGHLANDER_HYBRID_2020                     3     1     0     1 openpilot           
+  TOYOTA_RAV4_2017                                  3     0     0     3 both                
+  BYD_ATTO3                                         2     0     2     0 OEM ADAS            
+  SUBARU_CROSSTREK_2025                             1     0     1     0 OEM ADAS            
+  TOYOTA_HIGHLANDER_TSS2                            1     0     1     0 OEM ADAS            
+  TOYOTA_RAV4_HYBRID_2023                           1     0     0     1 both                

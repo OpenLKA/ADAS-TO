@@ -1,0 +1,379 @@
+========================================================================
+  ADAS TAKEOVER DATASET — COMPREHENSIVE STATISTICS REPORT
+========================================================================
+
+────────────────────────────────────────────────────────────────────────
+1. DATASET OVERVIEW
+────────────────────────────────────────────────────────────────────────
+  Raw clips (before filtering)  : 15,705
+  Noise clips removed           : 46  (Joystick Mode, WARNING: This branch is not tested, Gear not D, Reverse
+Gear, CAN Error: Check Connections)
+  Clean clips (after filtering) : 15,659
+  Unique car models             : 163
+  Unique brands                 : 22
+  Unique vehicles (dongle_id)   : 327
+  Unique routes                 : 2309
+  Total video duration          : 86.95 h  (5216.9 min)
+  Clips with all 8 CSVs present : 15,659  (100.0%)
+
+  Clip duration statistics:
+  n=15,659  mean=19.99 s  median=20.00 s  std=0.25 s  [p5=20.00, p95=20.00] s
+    Full 20-second clips   : 15,622  (99.8%)
+    Short clips (<10 s)    : 0  (0.0%)
+
+────────────────────────────────────────────────────────────────────────
+2. VEHICLE DIVERSITY
+────────────────────────────────────────────────────────────────────────
+  Powertrain type:
+    ICE         : 12,008  (76.7%)
+    BEV         : 2,302  (14.7%)
+    HEV/PHEV    : 1,349  (8.6%)
+
+  Clips by brand (all brands):
+    Rivian         : 2,127  (13.6%)
+    Acura          : 1,892  (12.1%)
+    Ford           : 1,803  (11.5%)
+    Hyundai        : 1,737  (11.1%)
+    Honda          : 1,486  (9.5%)
+    Toyota         : 1,311  (8.4%)
+    Chevrolet      : 1,289  (8.2%)
+    Volkswagen     : 1,136  (7.3%)
+    Kia            :   972  (6.2%)
+    Tesla          :   745  (4.8%)
+    Ram            :   268  (1.7%)
+    Genesis        :   252  (1.6%)
+    Subaru         :   166  (1.1%)
+    Skoda          :    88  (0.6%)
+    Porsche        :    76  (0.5%)
+    Nissan         :    68  (0.4%)
+    Volvo          :    67  (0.4%)
+    Mazda          :    52  (0.3%)
+    Jeep           :    43  (0.3%)
+    Audi           :    41  (0.3%)
+    Lexus          :    38  (0.2%)
+    Byd            :     2  (0.0%)
+
+  Top 20 car models by clip count:
+     1. RIVIAN_R1_GEN1                            : 2,127
+     2. ACURA_MDX_3G_MMR                          : 1,863
+     3. FORD_F_150_MK14                           : 1,224
+     4. CHEVROLET_SILVERADO                       :   637
+     5. TOYOTA_PRIUS                              :   481
+     6. HONDA_CIVIC                               :   468
+     7. TESLA_AP3_MODEL_3                         :   432
+     8. FORD_MAVERICK_MK1                         :   294
+     9. HYUNDAI_IONIQ_5                           :   266
+    10. CHEVROLET_BOLT_EUV_2022                   :   243
+    11. TOYOTA_RAV4_TSS2_2023                     :   228
+    12. RAM_HD_5TH_GEN                            :   221
+    13. VOLKSWAGEN_JETTA_MK7                      :   215
+    14. KIA_EV6                                   :   208
+    15. VOLKSWAGEN_GOLF_MK7                       :   192
+    16. KIA_NIRO_EV                               :   185
+    17. HYUNDAI_IONIQ_6                           :   177
+    18. VOLKSWAGEN_ATLAS_MK1                      :   153
+    19. TESLA_MODEL_X                             :   152
+    20. HYUNDAI_IONIQ_5_2022                      :   145
+
+────────────────────────────────────────────────────────────────────────
+3. RECORDING QUALITY
+────────────────────────────────────────────────────────────────────────
+  Log type:
+    qlog    : 9,666  (61.7%)
+    rlog    : 5,993  (38.3%)
+  Log sampling rate:
+     10 Hz : 9,666  (61.7%)
+    100 Hz : 5,993  (38.3%)
+  Video type:
+    qcamera   : 15,611  (99.7%)
+    fcamera   :    48  (0.3%)
+
+  Per-CSV completeness:
+    carState.csv       : 15,659  (100.0%)
+    controlsState.csv  : 15,659  (100.0%)
+    radarState.csv     : 15,659  (100.0%)
+    carControl.csv     : 15,659  (100.0%)
+    carOutput.csv      : 15,659  (100.0%)
+    drivingModelData.csv: 15,659  (100.0%)
+    longitudinalPlan.csv: 15,659  (100.0%)
+    accelerometer.csv  : 15,659  (100.0%)
+
+────────────────────────────────────────────────────────────────────────
+4. DRIVING CONDITIONS AT TAKEOVER MOMENT
+────────────────────────────────────────────────────────────────────────
+  Speed (km/h):
+  n=15,623  mean=54.93 km/h  median=53.25 km/h  std=30.81 km/h  [p5=4.74, p95=111.11] km/h
+    Standstill (< 2 km/h)       :   560  (3.6%)
+    Urban     (2 – 60 km/h)     : 8,758  (56.1%)
+    Rural     (60 – 100 km/h)   : 4,792  (30.7%)
+    Highway   (≥ 100 km/h)      : 1,513  (9.7%)
+
+  Acceleration (m/s²):
+  n=15,623  mean=-0.16 m/s²  median=-0.07 m/s²  std=0.66 m/s²  [p5=-1.31, p95=0.80] m/s²
+    Braking   (a < −0.5 m/s²)   : 2,967  (19.0%)
+    Coasting  (|a| ≤ 0.5 m/s²)  : 11,262  (72.1%)
+    Accel.    (a >  0.5 m/s²)   : 1,394  (8.9%)
+
+  Steering angle (°, signed):
+  n=15,623  mean=0.85°  median=-0.10°  std=38.81°  [p5=-18.00, p95=16.40]°
+  Steering angle (°, absolute):
+  n=15,623  mean=10.21°  median=2.40°  std=37.46°  [p5=0.20, p95=33.50]°
+
+  Steering torque:
+  n=15,623  mean=-3.74  median=0.00  std=418.87  [p5=-431.00, p95=418.00]
+
+  Set cruise speed at takeover (km/h):
+  n=10,295  mean=72.85 km/h  median=66.00 km/h  std=30.01 km/h  [p5=32.00, p95=123.00] km/h
+
+────────────────────────────────────────────────────────────────────────
+5. LEAD VEHICLE STATISTICS
+────────────────────────────────────────────────────────────────────────
+  Clips with lead vehicle    : 7,802  (49.8%)
+  Clips without lead vehicle : 7,857  (50.2%)
+  Lead distance dRel (m):
+  n=7,802  mean=38.64 m  median=31.46 m  std=28.09 m  [p5=5.32, p95=97.21] m
+    Close-range (< 20 m)   : 2,280  (29.2%)
+    Mid-range (20 – 60 m)  : 3,943  (50.5%)
+    Far (≥ 60 m)           : 1,579  (20.2%)
+  Lead relative speed (m/s):
+  n=7,802  mean=-1.71 m/s  median=-0.98 m/s  std=3.13 m/s  [p5=-8.01, p95=1.93] m/s
+
+────────────────────────────────────────────────────────────────────────
+6. TAKEOVER TRIGGER ANALYSIS  (window: [−0.2 s, +0.5 s] around event)
+────────────────────────────────────────────────────────────────────────
+  Steering override   : 6,736  (43.0%)
+  Brake override      : 9,224  (58.9%)
+  Gas override        : 3,051  (19.5%)
+  Any driver input    : 13,518  (86.3%)
+  No driver input     : 2,141  (13.7%)  (system-/alert-initiated)
+
+  Number of simultaneous trigger inputs:
+    0 input(s) : 2,141  (13.7%)
+    1 input(s) : 8,089  (51.7%)
+    2 input(s) : 5,365  (34.3%)
+    3 input(s) :    64  (0.4%)
+
+  Primary trigger (highest-priority single label):
+    Brake                 : 6,208  (39.6%)
+    Steering              : 3,960  (25.3%)
+    System / Unknown      : 2,141  (13.7%)
+    Gas                   : 2,110  (13.5%)
+    Mixed                 : 1,240  (7.9%)
+
+────────────────────────────────────────────────────────────────────────
+7. ALERT TEXTS AT TAKEOVER MOMENT (alertText1, top 25)
+────────────────────────────────────────────────────────────────────────
+  Unique alert texts    : 59
+  Empty string ('')     : 13,561  (86.6%)  ← typically driver-initiated
+
+  Non-empty alert texts (top 25):
+      541  'Dashcam Mode'
+      508  'Changing Lanes'
+      169  'TAKE CONTROL IMMEDIATELY'
+      130  'Steer Right to Start Lane Change Once Safe'
+       83  'Steering Temporarily Unavailable'
+       76  'Take Control'
+       73  'Pay Attention'
+       69  'Steer Left to Start Lane Change Once Safe'
+       59  'Smart/Adaptive Cruise Control is OFF'
+       51  'Steer Unavailable Below 36 mph'
+       40  'Steer Unavailable Below 50 km/h'
+       35  'openpilot Unavailable'
+       31  'Steer Unavailable Below 6 mph'
+       28  'Steer Unavailable Below 10 km/h'
+       26  'Press Resume to Exit Standstill'
+       22  'Lane Change Unavailable: Road Edge'
+       21  'Steer Unavailable Below 39 mph'
+       18  'BRAKE!'
+       17  'Set speed changed to match posted speed limit'
+       11  'Release Brake to Engage'
+       10  'Steer Unavailable Below 51 km/h'
+        8  'Cruise Fault: Restart the car to engage'
+        7  'Steer Unavailable Below 7 mph'
+        6  'openpilot will disengage'
+        4  'Car Detected in Blindspot'
+
+────────────────────────────────────────────────────────────────────────
+8. ROUTE AND SEGMENT STATISTICS
+────────────────────────────────────────────────────────────────────────
+  Unique routes with ≥1 clip  : 2,309
+  Clips per route:
+  n=2,309  mean=6.78  median=5.00  std=8.02  [p5=1.00, p95=18.00]
+    Routes with exactly 1 clip :   296  (12.8%)
+    Routes with 2–5 clips      : 1,029  (44.6%)
+    Routes with > 5 clips      :   984  (42.6%)
+    Max clips in one route     : 117
+
+  Segments used per clip:
+  n=15,659  mean=53.59  median=31.00  std=73.85  [p5=7.00, p95=167.00]
+
+────────────────────────────────────────────────────────────────────────
+9. PER-MODEL AGGREGATE STATISTICS (sorted by clip count)
+────────────────────────────────────────────────────────────────────────
+  Model                                      PT            N  Rts  Veh   Spd±σ (km/h) Acc (m/s²)  Lead%  Steer%  Brake%
+  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  RIVIAN_R1_GEN1                             ICE        2127  265   16      61.3±24.9     -0.052   39.5    27.6    15.0
+  ACURA_MDX_3G_MMR                           ICE        1863  264    1      42.4±23.4     -0.073   54.5    69.4    65.1
+  FORD_F_150_MK14                            ICE        1224  163   11      49.2±29.7     -0.285   30.6    49.8    86.5
+  CHEVROLET_SILVERADO                        ICE         637   98    3      57.3±34.9      0.048   73.9    38.3    30.6
+  TOYOTA_PRIUS                               HEV/PHEV    481   57   12      46.7±30.0     -0.180   45.3    40.3    79.6
+  HONDA_CIVIC                                ICE         468  107    4      59.1±29.5     -0.148   63.5    42.5    50.9
+  TESLA_AP3_MODEL_3                          BEV         432   62   11      58.1±29.5     -0.186   47.5    57.2    35.0
+  FORD_MAVERICK_MK1                          HEV/PHEV    294   25    2      70.5±36.2     -0.096   65.0    41.2    84.7
+  HYUNDAI_IONIQ_5                            BEV         266   49   10      62.9±31.7     -0.276   67.7    48.5    62.4
+  CHEVROLET_BOLT_EUV_2022                    BEV         243   33    6      66.7±33.7     -0.208   60.5    34.6    35.0
+  TOYOTA_RAV4_TSS2_2023                      ICE         228   36    5      53.5±35.0     -0.284   55.7    29.8    74.6
+  RAM_HD_5TH_GEN                             ICE         221   13    2      80.6±31.4     -0.241   46.2    75.6    90.0
+  VOLKSWAGEN_JETTA_MK7                       ICE         215   18    1      44.1±27.6     -0.675   42.8    39.5    64.2
+  KIA_EV6                                    BEV         208   30    7      54.4±27.1     -0.296   42.3    32.7    80.3
+  VOLKSWAGEN_GOLF_MK7                        ICE         192   29    3      50.1±35.6     -0.601   54.2    22.4    67.2
+  KIA_NIRO_EV                                BEV         185   38    5      48.5±34.2     -0.061   44.3    29.7    40.5
+  HYUNDAI_IONIQ_6                            ICE         177   33    1      60.1±28.5     -0.034   27.1    14.7    26.0
+  VOLKSWAGEN_ATLAS_MK1                       ICE         153   13    2      51.8±29.3     -0.255   60.8    39.2    54.2
+  TESLA_MODEL_X                              ICE         152   34    2      62.6±34.8     -0.066   40.1    51.3    50.7
+  HYUNDAI_IONIQ_5_2022                       BEV         145   33    5      62.4±33.8     -0.153   57.2    40.7    58.6
+  TESLA_MODELY                               BEV         141   21    8      46.7±31.4      0.061   48.2    56.7    48.9
+  HONDA_CIVIC_2022                           ICE         141   21    3      64.7±29.4     -0.263   61.7    24.1    63.8
+  KIA_EV6_2022                               BEV         138   14    4      26.9±25.4     -0.441   76.1    26.1    86.2
+  HYUNDAI_SONATA_HEV_2024                    HEV/PHEV    134    6    1      43.5±21.5     -0.188   50.0    15.7    86.6
+  FORD_ESCAPE_MK4_5                          ICE         132   27    1      60.8±26.5     -0.067   74.2    24.2    83.3
+  VOLKSWAGEN_SHARAN_MK2                      ICE         131   17    3      34.1±22.9     -0.139   64.9    31.3    82.4
+  HONDA_CIVIC_BOSCH                          ICE         130   15    3      60.1±29.0     -0.055   47.7    34.6    84.6
+  VOLKSWAGEN_PASSAT_MK8                      ICE         119    2    2      81.6±28.7     -0.149   66.4    59.7     6.7
+  GENESIS_G70_2024                           ICE         115   24    2      73.1±32.5     -0.082   57.4    31.3    59.1
+  HONDA_ODYSSEY_2018                         ICE         115    8    1      78.0±40.0     -0.215   67.0    34.8    87.0
+  HYUNDAI_KONA_ELECTRIC_2019                 BEV         113   26    3      39.9±19.5     -0.131   64.6    55.8    73.5
+  VOLKSWAGEN_PASSAT_NMS                      ICE         108   12    1      49.4±32.7     -0.323   62.0    34.3    79.6
+  CHEVROLET_BOLT_EUV                         BEV         106   19    3      62.7±30.5     -0.019   37.7    38.7     9.4
+  CHEVROLET_SILVERADO_1500_2020              ICE         102   13    1      55.5±31.6     -0.083   65.7    31.4    46.1
+  TOYOTA_ALPHARD_2020                        ICE         100    2    1      34.0±20.6     -0.272   55.0    58.0    93.0
+  HYUNDAI_SONATA                             ICE          98    6    1      62.8±33.6     -0.598   48.0    44.9    91.8
+  HONDA_ACCORD_11G                           ICE          97   11    3      56.3±25.2     -0.306   48.5    69.1    88.7
+  TOYOTA_CAMRY_2021                          ICE          95   12    2      55.0±29.1     -0.186   63.2    40.0    64.2
+  TOYOTA_COROLLA                             ICE          92    7    5      43.3±28.0     -0.116   75.0    52.2    76.1
+  HYUNDAI_PALISADE_2023                      ICE          92   21    4      59.2±24.5      0.040   44.6    38.0    76.1
+  HONDA_FIT_4G                               ICE          90   17    1      41.8±23.1     -0.351   70.0    17.8    74.4
+  KIA_SPORTAGE_5TH_GEN                       ICE          84   13    3      49.3±29.6     -0.167   47.6    38.1    84.5
+  CHEVROLET_VOLT_PREMIER_2018                HEV/PHEV     81   11    2      33.1±29.7     -0.046   43.2    21.0    63.0
+  HYUNDAI_PALISADE                           ICE          79   14    1      54.1±20.3     -0.140   50.6    12.7    79.7
+  FORD_MUSTANG_MACH_E_MK1                    BEV          79   23    2      81.6±32.0     -0.432   67.1    69.6    82.3
+  VOLKSWAGEN_TIGUAN_MK2                      ICE          78   15    3      67.0±31.0     -0.275   47.4    56.4    74.4
+  HYUNDAI_KONA_EV                            ICE          78    6    2      45.9±23.0     -0.044   37.2    34.6    96.2
+  TOYOTA_CAMRY_TSS2                          ICE          78   10    3      71.0±25.4     -0.133   35.9    50.0    69.2
+  TOYOTA_COROLLA_TSS2                        ICE          77   11    8      59.3±29.5     -0.281   41.6    39.0    37.7
+  PORSCHE_MACAN_MK1                          ICE          76   17    2      59.4±26.0     -0.152   31.6    77.6    56.6
+  KIA_CARNIVAL_4TH_GEN                       ICE          73   11    3      49.9±32.1     -0.331   53.4    38.4    87.7
+  SKODA_SUPERB_MK3                           ICE          69    8    2      52.7±27.4     -0.329   33.3    44.9    84.1
+  HONDA_ACCORD_HYBRID_2018                   HEV/PHEV     66   18    1      69.6±30.9     -0.101   68.2    36.4    50.0
+  KIA_NIRO_PHEV_2022                         ICE          65   11    2      45.8±30.3     -0.523   56.9    24.6    78.5
+  HONDA_CITY_7G                              ICE          65   11    1      47.2±29.1     -0.247   44.6    89.2   100.0
+  CHEVROLET_TRAILBLAZER                      ICE          64    8    2      34.3±23.7     -0.170   20.3    45.3    71.9
+  HYUNDAI_ELANTRA_2022_NON_SCC               ICE          64    7    1      66.6±32.7     -0.127   70.3     9.4    92.2
+  VOLKSWAGEN_ID4_MK1                         ICE          60   13    2      49.7±31.9     -0.666   45.0    26.7    90.0
+  GENESIS_GV60_EV_1ST_GEN                    BEV          59   10    1      60.4±23.9     -0.378   20.3    52.5    50.8
+  HONDA_CRV_6G                               ICE          59   14    4      62.8±28.0     -0.175   28.8    61.0    45.8
+  HYUNDAI_ELANTRA_HEV_2024                   ICE          58   14    2      40.9±21.4      0.007   46.6    39.7    82.8
+  VOLVO_V60                                  ICE          57    5    1      92.5±22.3     -0.071   21.1    80.7    40.4
+  KIA_EV9                                    ICE          53    6    2      48.8±23.6     -0.077   39.6    64.2    50.9
+  MAZDA_CX5_2022                             ICE          52    7    2      49.7±29.1     -0.044   40.4    26.9    78.8
+  SUBARU_IMPREZA                             ICE          51    7    2      35.5±20.6     -0.296   76.5    39.2    96.1
+  HONDA_ACCORD                               ICE          50    5    3      75.2±48.6     -0.405   54.0    48.0    88.0
+  RAM_1500_5TH_GEN                           ICE          47    7    4      63.2±36.4     -0.166   34.0    46.8    87.2
+  HYUNDAI_IONIQ_6_2023                       BEV          47    7    1      59.9±31.8      0.015   59.6    19.1    97.9
+  TOYOTA_HIGHLANDER_2020                     ICE          46    6    2      37.0±29.0     -0.072   54.3    54.3    80.4
+  TOYOTA_RAV4_PRIME                          HEV/PHEV     46   15    9      70.3±33.4     -0.024   43.5    43.5    45.7
+  KIA_NIRO_HYBRID_2ND_GEN                    HEV/PHEV     45    4    1      63.5±27.9     -0.258   46.7    40.0    66.7
+  NISSAN_LEAF                                BEV          43    8    2      67.3±22.7     -0.017   60.5    39.5    25.6
+  TOYOTA_RAV4_2023                           ICE          40   11    4      61.1±27.7      0.000   40.0    57.5    60.0
+  HYUNDAI_IONIQ_PHEV_2020                    HEV/PHEV     39    5    1      42.7±25.9     -0.198   15.4    23.1    89.7
+  GENESIS_G70_1ST_GEN_FL                     ICE          38    8    1      81.5±26.9     -0.019   52.6    44.7    57.9
+  HYUNDAI_ELANTRA_2021                       ICE          35    5    2      54.4±23.5     -0.039   68.6     8.6    74.3
+  KiaNiro2023                                HEV/PHEV     35   12    2      64.3±33.9     -0.183   20.0    51.4    77.1
+  CHEVROLET_EQUINOX                          ICE          34    7    1      46.0±27.7     -0.326   50.0    26.5    91.2
+  HONDA_HRV_3G                               ICE          33    7    1      33.9±20.6     -0.128   78.8    51.5    57.6
+  HYUNDAI_IONIQ_5_PE                         ICE          31    6    1      67.1±25.6      0.007   32.3    45.2    64.5
+  AUDI_Q5_MK1                                ICE          31    3    1      58.4±22.4     -0.276   25.8    45.2    35.5
+  HONDA_ODYSSEY_CHN_2019                     ICE          31    3    1      32.4±18.5     -0.058   90.3    32.3    29.0
+  ACURA_INTEGRA                              ICE          29    8    1      52.9±17.1     -0.084   34.5    37.9   100.0
+  FORD_BRONCO_SPORT_MK1                      ICE          29    5    3      66.3±45.3      0.253   58.6    51.7    62.1
+  HYUNDAI_TUCSON_HYBRID_4TH_GEN              HEV/PHEV     27    5    1      54.6±35.8     -0.247   25.9    40.7    92.6
+  GENESIS_GV70_1ST_GEN                       ICE          27    2    1      70.6±24.3     -0.142   77.8    48.1   100.0
+  HONDA_CLARITY_2018                         HEV/PHEV     27    3    1      56.0±25.0     -0.167   29.6    48.1   100.0
+  HYUNDAI_SONATA_2020                        ICE          26    1    1      45.0±41.9     -0.294   53.8    30.8   100.0
+  HYUNDAI_SANTA_FE_5TH_GEN                   ICE          26    3    1     107.1±26.7     -0.160   34.6    65.4    73.1
+  SUBARU_CROSSTREK_2024                      ICE          25    4    1      37.5±12.7     -0.113   32.0    52.0    32.0
+  NISSAN_ROGUE                               ICE          25    2    1      74.0±32.8      0.261   68.0    36.0     4.0
+  HYUNDAI_IONIQ_ELECTRIC_2020                BEV          25    3    1      18.1±14.0     -0.483   84.0    28.0    76.0
+  SUBARU_FORESTER                            ICE          24    4    2      77.6±24.2     -0.043   50.0    25.0    58.3
+  HYUNDAI_SONATA_HYBRID                      HEV/PHEV     24    9    4      67.9±36.8     -0.071   33.3    33.3    66.7
+  HYUNDAI_KONA                               ICE          23    4    1      41.0±29.3      0.142   47.8    56.5    21.7
+  VOLKSWAGEN_TAOS_MK1                        ICE          23    3    1      89.5±26.7     -0.070   78.3    21.7    17.4
+  FORD_F_150_LIGHTNING_MK1                   BEV          21    9    2      46.2±22.9     -0.416   52.4    33.3    42.9
+  HONDA_ODYSSEY_5G_MMR                       ICE          21    8    2      50.0±41.5     -0.489   52.4    42.9    90.5
+  HONDA_CRV_5G                               ICE          20    3    1      59.0±18.4     -0.134   25.0    30.0    80.0
+  SUBARU_FORESTER_2022                       ICE          20    3    1      38.3±35.1      0.204   70.0    25.0    10.0
+  HYUNDAI_ELANTRA_2024                       ICE          19    7    1      56.9±28.6     -0.084   68.4    26.3   100.0
+  JEEP_CHEROKEE_5TH_GEN                      ICE          19    4    1      87.5±21.0     -0.474   78.9    57.9    15.8
+  HONDA_PILOT_4G                             ICE          19    3    2      46.6±22.3     -0.059   26.3    42.1    84.2
+  SKODA_KODIAQ_1ST_GEN                       ICE          19    7    1      18.1±12.2     -0.128   47.4    63.2    89.5
+  VOLKSWAGEN_JETTA_MK6                       ICE          19    1    1      43.0±22.3     -0.924   21.1    63.2    68.4
+  HONDA_CLARITY                              HEV/PHEV     19    5    2      69.3±26.0      0.050   31.6    15.8    52.6
+  HYUNDAI_ELANTRA_HEV_2021                   ICE          19    1    1      42.7±31.7     -0.348   21.1     5.3   100.0
+  KIA_NIRO_EV_2020                           BEV          18    6    1      71.8±42.1      0.005   61.1    22.2    77.8
+  CHEVROLET_VOLT_PREMIER_2017                HEV/PHEV     17    5    2      50.7±33.2      0.127   35.3    47.1    47.1
+  KIA_STINGER                                ICE          17    5    1      44.6±27.7     -0.514   70.6    11.8    47.1
+  HONDA_PILOT                                ICE          17    2    1      67.2±22.7      0.005   23.5    47.1    35.3
+  TESLA_MODEL_S_RAVEN                        BEV          17    3    2      60.5±26.6      0.019   47.1    52.9    82.4
+  KIA_CARNIVAL_HEV_4TH_GEN                   ICE          16    4    3      56.6±27.0     -0.034   43.8    31.2    87.5
+  HYUNDAI_SANTA_FE                           ICE          16    3    1      60.5±33.3     -0.296   87.5    50.0    81.2
+  HYUNDAI_SONATA_2024                        ICE          16    1    1      40.7±30.1     -0.378   37.5    31.2   100.0
+  LEXUS_ES_TSS2                              ICE          16    3    2      89.9±18.6     -0.112   62.5    31.2    25.0
+  KIA_NIRO_EV_2ND_GEN                        BEV          16    6    2      46.6±33.2     -0.440   31.2    62.5    93.8
+  SUBARU_OUTBACK_PREGLOBAL                   ICE          15    2    1      50.2±19.1      0.051   60.0    73.3    73.3
+  TOYOTA_HIGHLANDER                          ICE          15    1    1      63.6±19.7      0.003   26.7    40.0     6.7
+  JEEP_GRAND_CHEROKEE                        ICE          14    3    1      59.9±30.8     -0.143   50.0    28.6    78.6
+  SUBARU_LEGACY_2025                         ICE          14    1    1      62.5±24.4     -0.356   50.0    14.3    78.6
+  FORD_RANGER_MK2                            ICE          14    4    2      37.0±26.3     -0.003   21.4    42.9    92.9
+  HYUNDAI_IONIQ_HEV_2022                     ICE          11    2    1      55.1±21.5      0.104   36.4     9.1    81.8
+  SUBARU_IMPREZA_2020                        ICE          10    4    1      43.1±39.9      0.251   70.0    30.0    60.0
+  HYUNDAI_KONA_2022                          ICE          10    2    1      53.7±20.4     -0.572   70.0    10.0    40.0
+  HYUNDAI_SANTA_FE_2019                      ICE          10    2    1      46.3±16.0     -1.015   10.0    50.0    90.0
+  HONDA_ODYSSEY                              ICE          10    2    1     100.8±28.4     -0.392   40.0    10.0    90.0
+  VOLVO_V40_2017                             ICE          10    1    1      24.8±18.4      0.102   50.0     0.0     0.0
+  FORD_EXPLORER_MK6                          ICE          10    1    1      63.7±26.0     -0.194   10.0    20.0   100.0
+  AUDI_A4_4TH_GEN                            ICE          10    1    1      72.4±19.6      0.053   60.0    80.0     0.0
+  JEEP_GRAND_CHEROKEE_2019                   ICE          10    3    3      50.7±25.9     -0.577   40.0    70.0    90.0
+  VOLKSWAGEN_CADDY_3RD-GEN                   ICE           9    2    1      77.9±21.7     -0.436   66.7    33.3    77.8
+  HYUNDAI_KONA_EV_2022                       ICE           9    3    1      75.9±28.2     -0.021   33.3    66.7    22.2
+  VOLKSWAGEN_UP_MK1                          ICE           9    1    1      30.9±15.4     -0.370   66.7    22.2   100.0
+  KIA_CEED_PHEV_2022_NON_SCC                 ICE           9    2    1      73.9±30.2      0.032   77.8    11.1    22.2
+  HYUNDAI_KONA_2ND_GEN                       ICE           8    1    1      82.6±23.2     -0.044   50.0    37.5    25.0
+  VOLKSWAGEN_TRANSPORTER_T61                 ICE           8    1    1      36.1±14.1     -0.020    0.0    62.5    50.0
+  HYUNDAI_TUCSON_HEV_2025                    ICE           8    1    1      84.3±34.0     -0.172  100.0    25.0    62.5
+  LEXUS_RC_TSS2                              ICE           8    2    1      65.9±31.0     -0.029   25.0    25.0    75.0
+  KIA_K8_HYBRID_1ST_GEN                      HEV/PHEV      7    1    1      37.6±14.4     -0.251    0.0    14.3    85.7
+  LEXUS_RX_TSS2                              ICE           6    1    1      18.2±15.1     -0.336   83.3    33.3    50.0
+  VOLKSWAGEN_TOURAN_2ND_GEN                  ICE           6    2    1      46.2±14.7     -0.193  100.0    50.0    66.7
+  VOLKSWAGEN_ID4_MK2                         ICE           6    4    1      48.0±52.1     -1.449   83.3    33.3   100.0
+  CHEVROLET_EQUINOX_2019                     ICE           5    1    1      56.2±17.2     -0.823   20.0    40.0   100.0
+  LEXUS_LC_2024                              ICE           5    1    1       59.6±9.9     -0.109   20.0    20.0    40.0
+  TOYOTA_YARIS                               ICE           5    5    1      61.7±13.5      0.045   40.0    40.0    40.0
+  GENESIS_GV80_2025                          ICE           5    2    1      38.3±33.6      0.755   80.0    80.0    40.0
+  HONDA_CRV_HYBRID                           ICE           5    1    1      52.5±33.5      0.183   40.0    60.0   100.0
+  HYUNDAI_TUCSON_2019                        ICE           4    1    1      30.1±35.1     -0.241   75.0    50.0    75.0
+  GENESIS_GV80                               ICE           4    1    1      33.9±16.6     -0.459   25.0    25.0   100.0
+  GENESIS_GV80_2024                          ICE           4    1    1      57.7±23.2     -0.196    0.0     0.0   100.0
+  TOYOTA_HIGHLANDER_HYBRID_2020              HEV/PHEV      3    1    1      26.4±15.7     -0.148   33.3    33.3    66.7
+  HONDA_RIDGELINE_2017                       ICE           3    1    1       48.3±4.7      0.486  100.0     0.0    33.3
+  KIA_EV6_2025                               ICE           3    1    1       29.9±3.5     -0.626  100.0   100.0   100.0
+  LEXUS_RX_HYBRID_2017                       HEV/PHEV      3    2    1     108.1±12.6     -0.036   66.7   100.0     0.0
+  TOYOTA_RAV4_2017                           ICE           3    1    1      67.9±18.7     -0.865   33.3    66.7    66.7
+  TESLA_MODEL_3                              ICE           3    1    1       34.3±3.3     -0.575    0.0    33.3   100.0
+  SUBARU_ASCENT_2023                         ICE           3    1    1      96.9±15.6     -0.078   66.7    33.3   100.0
+  SUBARU_OUTBACK_2018_-_2019                 ICE           3    1    1       24.2±7.9     -0.738    0.0   100.0    66.7
+  BYD_ATTO3                                  ICE           2    1    1       29.2±1.7      0.124    0.0     0.0   100.0
+  SUBARU_CROSSTREK_2025                      ICE           1    1    1        0.0±nan      0.000  100.0     0.0     0.0
+  TOYOTA_RAV4_HYBRID_2023                    HEV/PHEV      1    1    1      128.2±nan      0.073    0.0     0.0     0.0
+  TOYOTA_HIGHLANDER_TSS2                     ICE           1    1    1       46.4±nan     -0.601    0.0   100.0   100.0
+
+  (detailed tables saved to model_stats.csv and brand_stats.csv)

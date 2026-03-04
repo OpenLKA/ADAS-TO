@@ -1,0 +1,133 @@
+{
+  "topics": {
+    "accelerometer": [
+      "acceleration.v"
+    ],
+    "carControl": [
+
+      "actuators.accel",
+      "actuators.brake",
+      "actuators.gas",
+      "actuators.longControlState",
+      "actuators.speed",
+
+      "cruiseControl.cancel",
+      "cruiseControl.override",
+      "cruiseControl.resume",
+
+      "enabled",
+
+      "gasDEPRECATED"
+    ],
+    "carOutput": [
+      "actuatorsOutput.accel",
+      "actuatorsOutput.brake",
+      "actuatorsOutput.gas",
+      "actuatorsOutput.longControlState",
+      "actuatorsOutput.speed",
+      "actuatorsOutput.steer",
+      "actuatorsOutput.torque",
+      "actuatorsOutput.steeringAngleDeg"
+    ],
+    "carState": [
+      "aEgo",
+      "accFaulted",
+
+      "brake",
+      "brakeHoldActive",
+      "brakePressed",
+
+      "charging",
+
+      "cruiseState.available",
+      "cruiseState.enabled",
+      "cruiseState.nonAdaptive",
+      "cruiseState.speed",
+      "cruiseState.standstill",
+
+      "espActive",
+
+      "gas",
+      "gasDEPRECATED",
+      "gasPressed",
+
+      "regenBraking",
+
+      "standstill",
+
+      "stockAeb",
+      "stockFcw",
+      "stockLkas",
+
+      "vCruise",
+
+
+      "vEgo",
+
+      "vEgoRaw",
+
+      "yawRate"
+    ],
+    "controlsState": [
+
+      "longControlState",
+      "personality",
+      "state"
+
+    ],
+    "radarState": [
+      "leadOne.aLeadDEPRECATED",
+      "leadOne.aLeadK",
+      "leadOne.aLeadTau",
+      "leadOne.aRel",
+      "leadOne.dPath",
+      "leadOne.dRel",
+      "leadOne.fcw",
+      "leadOne.modelProb",
+      "leadOne.radar",
+      "leadOne.radarTrackId",
+      "leadOne.status",
+      "leadOne.vLat",
+      "leadOne.vLead",
+      "leadOne.vLeadK",
+      "leadOne.vRel",
+      "leadOne.yRel",
+
+      "leadTwo.aLeadDEPRECATED",
+      "leadTwo.aLeadK",
+      "leadTwo.aLeadTau",
+      "leadTwo.aRel",
+      "leadTwo.dPath",
+      "leadTwo.dRel",
+      "leadTwo.fcw",
+      "leadTwo.modelProb",
+      "leadTwo.radar",
+      "leadTwo.radarTrackId",
+      "leadTwo.status",
+      "leadTwo.vLat",
+      "leadTwo.vLead",
+      "leadTwo.vLeadK",
+      "leadTwo.vRel",
+      "leadTwo.yRel"
+
+    ],
+    "drivingModelData": [
+      "action.desiredAcceleration",
+      "action.desiredCurvature",
+      "action.shouldStop"
+    ],
+    "longitudinalPlan": [
+
+      "aTarget",
+      "accels",
+      "fcw",
+
+      "hasLead",
+      "jerks",
+
+      "shouldStop",
+      "speeds"
+
+    ]
+  }
+}

@@ -1,0 +1,94 @@
+\section{Take Over Analysis}
+\label{sec:takeover_analysis}
+
+\subsection{Proxy-Based Scenario Taxonomy}
+\label{subsec:taxonomy}
+
+We characterize 15,659 takeover events from 327 unique drivers across 163 vehicle models. Each event is described by a \SI{5}{s} pre-takeover window and a \SI{5}{s} post-takeover window centered on the ADAS disengagement moment ($t=0$). All features are computed using timestamp-based differencing (not sample-index differencing), and derivative metrics (jerk, steering rate) are preceded by Savitzky--Golay smoothing to reduce noise amplification, following the recommendations of \citet{savitzky1964smoothing}.
+
+We classify each event into one of nine proxy-based pre-takeover context categories using a priority-ordered rule system applied to traffic conflict proxies, driver inputs, and system alerts (Table~\ref{tab:scenario_rules}). Importantly, the underlying boolean rule flags are stored independently and may overlap; the single primary label is assigned for analytical convenience but does not suppress multi-flag information. Events for which two or more major rule groups are simultaneously active are additionally marked with a \texttt{mixed\_flag}.
+
+\begin{itemize}[nosep]
+  \item \textbf{Longitudinal Conflict}: 3,049 events (19.5\%)
+  \item \textbf{Lateral Conflict}: 3,429 events (21.9\%)
+  \item \textbf{Planned Lane Change}: 1,638 events (10.5\%)
+  \item \textbf{Planned Acceleration}: 303 events (1.9\%)
+  \item \textbf{Intersection Odd}: 65 events (0.4\%)
+  \item \textbf{Ride Discomfort}: 31 events (0.2\%)
+  \item \textbf{System Boundary}: 56 events (0.4\%)
+  \item \textbf{Discretionary}: 5,245 events (33.5\%)
+  \item \textbf{Uncertain Mixed}: 1,843 events (11.8\%)
+\end{itemize}
+
+A total of 1,100 events (7.0\%) carry overlapping rule flags from two or more major groups, underscoring that naturalistic takeover contexts are frequently multi-faceted and resist clean single-label categorization.
+
+The distribution of primary context labels is shown in Fig.~\ref{fig:scenario_distribution}, and the relationship between scenarios and trigger types is depicted in Fig.~\ref{fig:scenario_by_trigger}.
+
+\subsection{Traffic Conflict Proxies and Response Intensity}
+\label{subsec:safety_proxies}
+
+We employ three established surrogate safety measures---time-to-collision (TTC), time headway (THW), and deceleration rate to avoid crash (DRAC)---as proxy indicators of longitudinal conflict severity. These metrics are computed only when a lead vehicle is detected by the forward radar; TTC and DRAC are further restricted to closing situations (relative velocity $v_{\mathrm{rel}} < 0$). We emphasize that these are \emph{proxy-based} indicators and do not constitute direct measures of crash risk.
+
+Minimum pre-takeover TTC is computable for 7,428 events involving a closing lead vehicle. The median value is \SI{10.49}{s} (IQR: 5.62--20.78~s). Under the engineering threshold of \SI{1.5}{s}, 65 events (0.9\%) are classified as exhibiting a critical longitudinal conflict indicator (Fig.~\ref{fig:safety_metrics}a).
+
+Minimum THW is available for 8,811 events. The median is \SI{1.72}{s}, with 1,713 (19.4\%) events below \SI{0.8}{s} (Fig.~\ref{fig:safety_metrics}b). The joint distribution of TTC and THW is shown in Fig.~\ref{fig:thw_ttc_scatter}, illustrating that the two proxies are correlated but not redundant.
+
+Post-takeover response intensity, as approximated by peak absolute longitudinal jerk, has a median of \SI{3.59}{m/s^3} (N=15,200). Events classified as longitudinal conflicts tend to produce higher post-takeover jerk, consistent with the expectation that conflict proximity is associated with more abrupt corrective responses (Fig.~\ref{fig:safety_by_scenario}).
+
+We define a stabilization time metric as the earliest post-takeover moment at which longitudinal acceleration and jerk simultaneously remain below conservative thresholds (\SI{0.5}{m/s^2}, \SI{1.0}{m/s^3}) for at least \SI{1.0}{s}. Among 3,638 uncensored observations, the median stabilization time is \SI{1.23}{s}; 11,562 events are right-censored at \SI{5.0}{s}.
+
+\subsection{Threshold-Event Modeling}
+\label{subsec:threshold_models}
+
+To accommodate the conditional availability and heavy-tailed nature of continuous conflict proxies, we model critical-threshold events as binary outcomes using generalized estimating equations (GEE) with a logit link and exchangeable within-driver correlation structure. This approach avoids the well-known pitfalls of regressing on right-censored or partially-missing continuous safety surrogates, and is consistent with threshold-based risk analysis conventions in the traffic safety literature.
+
+For $I(\min TTC < 1.5~\text{s})$ (N=7,640, event rate=0.007), the GEE logistic exchangeable model identifies scenario category as a significant predictor of threshold exceedance. 
+For $I(\min THW < 0.8~\text{s})$ (N=7,640, event rate=0.125), the GEE logistic exchangeable model identifies scenario category as a significant predictor of threshold exceedance. 
+For $I(\max DRAC > 3.0~\text{m/s}^2)$ (N=7,640, event rate=0.003), the GEE logistic exchangeable model identifies scenario category as a significant predictor of threshold exceedance. 
+Detailed odds ratios and confidence intervals are reported in Fig.~\ref{fig:mixed_model_forest} and the supplemental tables.
+
+\subsection{OEM ADAS vs.\ openpilot: Propensity-Weighted Comparison}
+\label{subsec:oem_vs_op}
+
+To control for observable confounds when comparing OEM ADAS and openpilot engagement sources, we employ inverse probability weighting (IPW) based on a logistic propensity model. Covariates include pre-takeover speed, lead presence rate, minimum following distance, sampling rate, and peak steering angle. Of 12,431 clips classified as either OEM-only or openpilot-only, 10,165 fall within the common support region ($0.1 < \hat{p} < 0.9$); 2,266 are excluded to avoid extrapolation.
+
+After weighting, the maximum absolute standardized mean difference across covariates is 0.143, which exceeds the conventional balance threshold of 0.1 (Fig.~\ref{fig:smd_balance}).
+
+Table~\ref{tab:oem_vs_op} reports the IPW-weighted mean differences and bootstrap 95\% confidence intervals for key safety proxies and response intensity metrics (Fig.~\ref{fig:oem_vs_op_comparison}):
+
+\begin{itemize}[nosep]
+  \item \textbf{Min TTC (s)}: $\Delta = -2.129$ (95\% CI: [-3.208, -1.018]); the interval does not include zero.
+  \item \textbf{Min THW (s)}: $\Delta = -0.067$ (95\% CI: [-0.176, 0.041]); the interval includes zero.
+  \item \textbf{Max |Jerk| (m/s³)}: $\Delta = -0.867$ (95\% CI: [-1.047, -0.675]); the interval does not include zero.
+  \item \textbf{Peak decel (m/s²)}: $\Delta = -0.032$ (95\% CI: [-0.086, 0.020]); the interval includes zero.
+  \item \textbf{Stabilization time (s)}: $\Delta = 0.172$ (95\% CI: [0.086, 0.255]); the interval does not include zero.
+\end{itemize}
+
+These comparisons should be interpreted with caution: propensity weighting addresses measured confounders only, and systematic self-selection into openpilot remains a plausible source of residual bias.
+
+\subsection{Driver Heterogeneity}
+\label{subsec:driver_heterogeneity}
+
+The dataset exhibits a long-tailed driver contribution distribution: the top 10 drivers (by clip count) contribute a disproportionate share of events, and within-driver correlation is expected to inflate standard errors if ignored. We address this through mixed-effects models with driver as a random intercept, reporting the intraclass correlation coefficient (ICC) to quantify the variance share attributable to individual driver differences.
+
+The estimated ICCs from linear mixed-effects models are: peak deceleration (ICC$=0.159$, N$=15,052$, 272 drivers); peak jerk (ICC$=0.127$, N$=15,040$, 272 drivers); stabilization time (ICC$=0.076$, N$=4,041$, 254 drivers). These values suggest that driver identity explains a non-trivial proportion of variance in takeover response intensity, reinforcing the need for cluster-aware inference in any downstream modeling effort (Fig.~\ref{fig:mixed_model_forest}).
+
+\subsection{Sampling Rate Sensitivity}
+\label{subsec:sampling_sensitivity}
+
+The dataset contains clips logged at both 10~Hz (qlog) and 100~Hz (rlog). Time-derivative metrics---particularly longitudinal jerk and steering rate---are sensitive to sampling frequency. Despite applying Savitzky--Golay smoothing prior to differentiation, we observe systematic distributional differences between the two log types (Fig.~\ref{fig:qlog_rlog_sensitivity}). 
+Of the 15,659 events, 9,666 (61.7\%) are from qlog and 5,993 (38.3\%) from rlog. 
+Consequently, all mixed-effects and GEE models include log type as a covariate where derivative metrics appear as outcomes. Readers should treat jerk and steering rate results as approximate and interpret cross-log-type comparisons with appropriate caution.
+
+\subsection{Limitations}
+\label{subsec:limitations}
+
+Several limitations merit discussion. First, the rule-based scenario taxonomy relies on configurable thresholds (e.g., TTC$<$\SI{1.5}{s}, THW$<$\SI{0.8}{s}); while these are drawn from the traffic safety engineering literature, alternative threshold choices would yield different category sizes. Sensitivity to these choices should be evaluated before drawing definitive conclusions.
+
+Second, TTC, THW, and DRAC are computable only when a lead vehicle is detected by the forward radar (47.4\% of events for TTC). Results on conflict proxies are therefore conditional on lead presence and may not generalize to the full event population.
+
+Third, the accelerometer-derived roughness metric uses detrended acceleration norm rather than a specific vertical axis, because device orientation is not guaranteed to be consistent across the 163 vehicle models in the dataset. This conservative choice may attenuate the roughness signal.
+
+Fourth, the observational nature of the data precludes causal claims. Drivers who adopt openpilot may differ systematically from those using only OEM ADAS in ways not captured by the measured covariates (e.g., risk tolerance, driving experience, route selection). The propensity-weighted comparisons address measured confounders only.
+
+Finally, the multi-flag labeling reveals that 7.0\% of events carry overlapping rule indicators from multiple scenario groups. The priority-based primary label is a simplification; future work may benefit from soft-label or multi-label modeling approaches.

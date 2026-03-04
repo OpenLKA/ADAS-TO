@@ -1,0 +1,231 @@
+{
+  "topics": {
+    "accelerometer": [
+      "acceleration.status",
+      "acceleration.v",
+      "timestamp"
+    ],
+    "carControl": [
+      "activeDEPRECATED",
+
+      "actuators.accel",
+      "actuators.brake",
+      "actuators.curvature",
+      "actuators.gas",
+      "actuators.longControlState",
+      "actuators.speed",
+      "actuators.steer",
+      "actuators.steerOutputCan",
+      "actuators.torque",
+      "actuators.torqueOutputCan",
+      "actuators.steeringAngleDeg",
+      "angularVelocity",
+
+      "cruiseControl.cancel",
+      "cruiseControl.override",
+      "cruiseControl.resume",
+
+      "enabled",
+
+      "gasDEPRECATED",
+
+      "latActive",
+      "leftBlinker",
+      "longActive",
+      "orientationNED",
+      "pitchDEPRECATED",
+      "rightBlinker"
+    ],
+    "carOutput": [
+      "actuatorsOutput.accel",
+      "actuatorsOutput.brake",
+      "actuatorsOutput.curvature",
+      "actuatorsOutput.gas",
+      "actuatorsOutput.longControlState",
+      "actuatorsOutput.speed",
+      "actuatorsOutput.steer",
+      "actuatorsOutput.torque",
+
+      "actuatorsOutput.steerOutputCan",
+      "actuatorsOutput.steeringAngleDeg"
+    ],
+    "carState": [
+      "aEgo",
+      "accFaulted",
+
+      "brake",
+      "brakeHoldActive",
+      "brakePressed",
+
+      "charging",
+
+      "cruiseState.available",
+      "cruiseState.enabled",
+      "cruiseState.nonAdaptive",
+      "cruiseState.speed",
+      "cruiseState.speedCluster",
+      "cruiseState.standstill",
+
+      "espActive",
+      "espDisabled",
+      "events",
+      "fuelGauge",
+
+      "gas",
+      "gasDEPRECATED",
+      "gasPressed",
+      "gearShifter",
+      "genericToggle",
+      "leftBlindspot",
+      "leftBlinker",
+      "parkingBrake",
+
+      "rightBlindspot",
+      "rightBlinker",
+
+      "regenBraking",
+
+      "standstill",
+
+      "steeringAngleDeg",
+      "steeringAngleOffsetDeg",
+      "steeringDisengage",
+      "steeringPressed",
+      "steeringRateDeg",
+      "steeringRateLimitedDEPRECATED",
+      "steeringTorque",
+      "steeringTorqueEps",
+
+      "stockAeb",
+      "stockFcw",
+      "stockLkas",
+
+      "vCruise",
+      "vCruiseCluster",
+
+      "vEgo",
+      "vEgoCluster",
+      "vEgoRaw",
+
+
+      "yawRate"
+    ],
+    "controlsState": [
+
+      "curvature",
+      "desiredCurvature",
+
+      "lateralControlState.angleState.active",
+      "lateralControlState.angleState.output",
+      "lateralControlState.angleState.saturated",
+      "lateralControlState.angleState.steeringAngleDeg",
+      "lateralControlState.angleState.steeringAngleDesiredDeg",
+      "lateralControlState.pidState.active",
+      "lateralControlState.pidState.angleError",
+      "lateralControlState.pidState.f",
+      "lateralControlState.pidState.i",
+      "lateralControlState.pidState.output",
+      "lateralControlState.pidState.p",
+      "lateralControlState.pidState.saturated",
+      "lateralControlState.pidState.steeringAngleDeg",
+      "lateralControlState.pidState.steeringAngleDesiredDeg",
+      "lateralControlState.pidState.steeringRateDeg",
+      "lateralPlanMonoTime",
+
+      "longControlState",
+      "longitudinalPlanMonoTime",
+
+      "personality",
+
+      "startMonoTime",
+      "state",
+
+      "ufAccelCmd",
+      "uiAccelCmd",
+      "upAccelCmd"
+
+    ],
+    "radarState": [
+      "carStateMonoTime",
+      "cumLagMs",
+      "ftMonoTimeDEPRECATED",
+
+      "leadOne.aLeadDEPRECATED",
+      "leadOne.aLeadK",
+      "leadOne.aLeadTau",
+      "leadOne.aRel",
+      "leadOne.dPath",
+      "leadOne.dRel",
+      "leadOne.fcw",
+      "leadOne.modelProb",
+      "leadOne.radar",
+      "leadOne.radarTrackId",
+      "leadOne.status",
+      "leadOne.vLat",
+      "leadOne.vLead",
+      "leadOne.vLeadK",
+      "leadOne.vRel",
+      "leadOne.yRel",
+
+      "leadTwo.aLeadDEPRECATED",
+      "leadTwo.aLeadK",
+      "leadTwo.aLeadTau",
+      "leadTwo.aRel",
+      "leadTwo.dPath",
+      "leadTwo.dRel",
+      "leadTwo.fcw",
+      "leadTwo.modelProb",
+      "leadTwo.radar",
+      "leadTwo.radarTrackId",
+      "leadTwo.status",
+      "leadTwo.vLat",
+      "leadTwo.vLead",
+      "leadTwo.vLeadK",
+      "leadTwo.vRel",
+      "leadTwo.yRel",
+
+      "mdMonoTime",
+      "radarErrors.canError",
+      "radarErrors.radarFault",
+      "warpMatrixDEPRECATED"
+    ],
+    "drivingModelData": [
+      "action.desiredAcceleration",
+      "action.desiredCurvature",
+      "action.shouldStop",
+      "action.desiredCurvature",
+
+      "frameDropPerc",
+      "frameId",
+
+      "laneLineMeta.leftProb",
+      "laneLineMeta.leftY",
+      "laneLineMeta.rightProb",
+      "laneLineMeta.rightY",
+
+      "meta.laneChangeDirection",
+      "meta.laneChangeState",
+
+      "path.xCoefficients",
+      "path.yCoefficients",
+      "path.zCoefficients"
+    ],
+    "longitudinalPlan": [
+
+      "aTarget",
+      "accels",
+      "fcw",
+
+      "hasLead",
+
+      "jerks",
+
+      "longitudinalPlanSource",
+      "modelMonoTime",
+
+      "shouldStop",
+      "speeds"
+
+    ]
+  }
+}
