@@ -31,16 +31,16 @@ ADAS-TO captures the critical moment of control transition — the exact instant
 
 <table>
 <tr>
-<td align="center"><img src="https://huggingface.co/datasets/HenryYHW/ADAS-TO/resolve/main/assets/takeover_1.gif" width="240"/><br/><sub>On-coming Traffic</sub></td>
-<td align="center"><img src="https://huggingface.co/datasets/HenryYHW/ADAS-TO/resolve/main/assets/takeover_2.gif" width="240"/><br/><sub>Bridge</sub></td>
-<td align="center"><img src="https://huggingface.co/datasets/HenryYHW/ADAS-TO/resolve/main/assets/takeover_3.gif" width="240"/><br/><sub>Night Driving</sub></td>
-<td align="center"><img src="https://huggingface.co/datasets/HenryYHW/ADAS-TO/resolve/main/assets/takeover_4.gif" width="240"/><br/><sub>Sharp Curve</sub></td>
+<td align="center"><img src="assets/takeover_1.gif" width="240"/><br/><sub>On-coming Traffic</sub></td>
+<td align="center"><img src="assets/takeover_2.gif" width="240"/><br/><sub>Bridge</sub></td>
+<td align="center"><img src="assets/takeover_3.gif" width="240"/><br/><sub>Night Driving</sub></td>
+<td align="center"><img src="assets/takeover_4.gif" width="240"/><br/><sub>Sharp Curve</sub></td>
 </tr>
 <tr>
-<td align="center"><img src="https://huggingface.co/datasets/HenryYHW/ADAS-TO/resolve/main/assets/takeover_5.gif" width="240"/><br/><sub>Surrounding Car</sub></td>
-<td align="center"><img src="https://huggingface.co/datasets/HenryYHW/ADAS-TO/resolve/main/assets/takeover_6.gif" width="240"/><br/><sub>Traffic Light</sub></td>
-<td align="center"><img src="https://huggingface.co/datasets/HenryYHW/ADAS-TO/resolve/main/assets/takeover_7.gif" width="240"/><br/><sub>Lane Change</sub></td>
-<td align="center"><img src="https://huggingface.co/datasets/HenryYHW/ADAS-TO/resolve/main/assets/takeover_8.gif" width="240"/><br/><sub>Hard Brake</sub></td>
+<td align="center"><img src="assets/takeover_5.gif" width="240"/><br/><sub>Surrounding Car</sub></td>
+<td align="center"><img src="assets/takeover_6.gif" width="240"/><br/><sub>Traffic Light</sub></td>
+<td align="center"><img src="assets/takeover_7.gif" width="240"/><br/><sub>Lane Change</sub></td>
+<td align="center"><img src="assets/takeover_8.gif" width="240"/><br/><sub>Hard Brake</sub></td>
 </tr>
 </table>
 
